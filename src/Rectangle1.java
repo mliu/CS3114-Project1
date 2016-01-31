@@ -12,8 +12,7 @@ import java.util.Scanner;
  * @author mliu95
  * @version 1
  */
-public class Rectangle1
-{
+public class Rectangle1 {
 
 	/**
 	 * The entry point of the application.
@@ -22,29 +21,25 @@ public class Rectangle1
 	 *            The name of the command file passed in as a command line
 	 *            argument.
 	 */
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 		if (args.length != 1) {
 			System.out.println("Not correct number of arguments");
-			//            System.exit(0);
+			// System.exit(0);
 		}
 
 		String fileIn = args[0];
 
-		//scan in the information
+		// scan in the information
 		Scanner scanner = null;
-		try
-		{
+		try {
 			scanner = new Scanner(new File(fileIn));
-		}
-		catch (FileNotFoundException e)
-		{
+		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
 
 		FileProcessor parser = new FileProcessor();
 
-		while(scanner.hasNextLine()) {
+		while (scanner.hasNextLine()) {
 			String str = scanner.nextLine();
 			parser.parseString(str);
 		}
