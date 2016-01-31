@@ -42,9 +42,8 @@ public class Rectangle1Test
     }
     
     public void testWrongArgCount() {
-    	String[] param1 = { "SyntaxTest.txt" };
-    	String[] param2 = { "SyntaxTest.txt" };
-    	Object[] args = { param1, param2 }; 
+    	String[] param1 = { "SyntaxTest.txt", "Two" };
+    	Object[] args = { param1 }; 
     	
     	this.main = getMethod(this.Rectangle1, "main", String[].class);
     	
