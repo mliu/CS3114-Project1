@@ -1,8 +1,4 @@
 /**
- * 
- */
-
-/**
  * @author jordanrw
  * @author mliu95
  */
