@@ -12,7 +12,15 @@ public class FileProcessor {
 	
 	}
 
+	public void insert(){
+	    
+	}
+	
+	public void regionsearch(String args) {
+	    
+	}
+	
 	public void parseString(String str) {
-		// TODO Auto-generated method stub
+		
 	}
 }
