@@ -24,7 +24,7 @@ public class Rectangle1
      */
     public static void main(String[] args)
     {
-    	if (args.length != 1) {
+        if (args.length != 1) {
             System.out.println("Not correct number of arguments");
 //            System.exit(0);
         }
