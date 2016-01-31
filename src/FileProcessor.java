@@ -21,19 +21,19 @@ public class FileProcessor {
 	}
 	
 	public void parseRemove(String[] args) {
-	    
+	    if (args.length )
 	}
     
     public void parseSearch(String[] args) {
-        
+        System.out.print("Rectangles found: ");
     }
     
     public void parseIntersections() {
-        
+        System.out.print("Intersection pairs: ");
     }
     
     public void parseDump() {
-        
+        System.out.print("SkipList dump: ");
     }
     
 	public void parseString(String str) {
