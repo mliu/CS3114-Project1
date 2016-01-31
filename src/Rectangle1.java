@@ -25,7 +25,7 @@ public class Rectangle1
     {
     	if (args.length != 1) {
             System.out.println("Not correct number of arguments");
-            System.exit(0);
+//            System.exit(0);
         }
     	
     	String fileIn = args[0];
