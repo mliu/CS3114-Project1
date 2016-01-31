@@ -33,7 +33,8 @@ public class Rectangle1 {
 		Scanner scanner = null;
 		try {
 			scanner = new Scanner(new File(fileIn));
-		} catch (FileNotFoundException e) {
+		} 
+		catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
 
