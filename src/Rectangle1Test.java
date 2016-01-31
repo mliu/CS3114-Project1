@@ -26,7 +26,6 @@ public class Rectangle1Test
         Rectangle1 dum = new Rectangle1();
         assertNotNull(dum);
         Rectangle1.main(null);
-        
     }
 
 }
