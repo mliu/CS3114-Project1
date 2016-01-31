@@ -5,8 +5,8 @@
 /**
  * The class containing the main method, the entry point of the application.
  *
- * @author {your name here}
- * @version {put something here}
+ * @author jordanrw
+ * @author mliu95
  */
 public class Rectangle1
 {
