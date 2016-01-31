@@ -1,4 +1,7 @@
+import java.lang.reflect.Method;
+
 import student.TestCase;
+import static student.testingsupport.ReflectionSupport.*;
 
 /**
  * @author ayaan
@@ -7,13 +10,24 @@ import student.TestCase;
 public class Rectangle1Test
     extends TestCase
 {
+	private Class<?> Rectangle1; 
+	private Method main;
 	private Rectangle1 rect;
     /**
      * This method sets up the tests that follow.
      */
     public void setUp()
     {
-        rect = new Rectangle1();
+    	try {
+    		this.Rectangle1 = reloadClassForName("Rectangle1");
+    	} 
+    	catch (Throwable e) {
+    		if (e instanceof Error) {
+    			throw e;
+    		} else {
+    			throw new RuntimeException(e);
+    		}
+    	}
     }
 
 
@@ -25,14 +39,20 @@ public class Rectangle1Test
     {
         Rectangle1 dum = new Rectangle1();
         assertNotNull(dum);
-        Rectangle1.main(null);
-        assertFuzzyEquals("Hello, World\n", systemOut().getHistory());
     }
     
     public void testWrongArgCount() {
-    	String[] params = { "SyntaxTest.txt" };
-    	Object[] args = { params }; try {
-    	invokeEx(null, this.main, args[0]);
-    	} catch (Exception e) { e.printStackTrace(); }
+    	String[] param1 = { "SyntaxTest.txt" };
+    	String[] param2 = { "SyntaxTest.txt" };
+    	Object[] args = { param1, param2 }; 
+    	
+    	this.main = getMethod(this.Rectangle1, "main", String[].class);
+    	
+    	try {
+    		invokeEx(null, this.main, args);
+    	} 
+    	catch (Exception e) { 
+    		e.printStackTrace(); 
+    	}
     }
 }
