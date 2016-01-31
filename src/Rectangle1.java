@@ -28,7 +28,6 @@ public class Rectangle1 {
 //        }
 
         String fileIn = args[0];
-        String fileOut = args[1];
 
         // scan in the information
         Scanner scanner = null;
@@ -39,10 +38,10 @@ public class Rectangle1 {
             e.printStackTrace();
         }
 
-        FileProcessor parser = new FileProcessor(fileOut);
+        FileProcessor parser = new FileProcessor();
 
         while (scanner.hasNextLine()) {
-            String str = scanner.nextLine().trim();;
+            String str = scanner.nextLine().trim();
             parser.parseString(str);
         }
     }

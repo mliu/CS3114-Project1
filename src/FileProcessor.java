@@ -13,11 +13,11 @@ public class FileProcessor {
 	}
 
 	public void parseInsert(String[] args){
-	    
+	    System.out.print("Rectangle inserted: ");
 	}
 	
 	public void parseRegionsearch(String[] args) {
-	    
+	    System.out.print("Regionsearch results: ");
 	}
 	
 	public void parseRemove(String[] args) {
