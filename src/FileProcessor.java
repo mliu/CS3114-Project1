@@ -11,4 +11,9 @@ public class FileProcessor {
 	public FileProcessor() {
 	
 	}
+
+	public void parseString(String str) {
+		// TODO Auto-generated method stub
+		
+	}
 }
