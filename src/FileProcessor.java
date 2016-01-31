@@ -21,6 +21,7 @@ public class FileProcessor {
 	}
 	
 	public void parseString(String str) {
-		
+	    String plusSpaceDelim = "[ +]+";
+        String[] tokens = str.split(plusSpaceDelim);
 	}
 }
