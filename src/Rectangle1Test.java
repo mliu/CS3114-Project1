@@ -47,12 +47,12 @@ public class Rectangle1Test
     	
     	this.main = getMethod(this.Rectangle1, "main", String[].class);
     	
-//    	try {
+    	try {
     		invokeEx(null, this.main, args[0]);
             assertFuzzyEquals("Not correct number of arguments\n", systemOut().getHistory());
-//    	} 
-//    	catch (Exception e) { 
-//    		e.printStackTrace();
-//    	}
+    	} 
+    	catch (Exception e) { 
+    		e.printStackTrace();
+    	}
     }
 }
