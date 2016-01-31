@@ -8,4 +8,7 @@
  */
 public class FileProcessor {
 
+	public FileProcessor {
+	
+	}
 }
