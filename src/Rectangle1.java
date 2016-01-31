@@ -22,10 +22,10 @@ public class Rectangle1 {
      *            argument.
      */
     public static void main(String[] args) {
-        if (args.length != 1) {
-            System.out.println("Not correct number of arguments");
+//        if (args.length != 1) {
+//            System.out.println("Not correct number of arguments");
             // System.exit(0);
-        }
+//        }
 
         String fileIn = args[0];
 
