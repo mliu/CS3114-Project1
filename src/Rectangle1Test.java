@@ -55,4 +55,18 @@ public class Rectangle1Test
     		e.printStackTrace();
     	}
     }
+    
+    public void testFile() {
+    	String[] param1 = { "SyntaxTest.txt" };
+    	Object[] args = { param1 }; 
+    	
+    	this.main = getMethod(this.Rectangle1, "main", String[].class);
+    	
+    	try {
+    		invokeEx(null, this.main, args[0]);
+    	} 
+    	catch (Exception e) { 
+    		e.printStackTrace();
+    	}
+    }
 }
