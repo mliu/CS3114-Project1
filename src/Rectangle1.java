@@ -1,3 +1,6 @@
+import java.io.*;
+import java.util.Scanner;
+
 /**
  * { your description of the project here }
  */
@@ -20,6 +23,23 @@ public class Rectangle1
      */
     public static void main(String[] args)
     {
-        System.out.println("Hello, World");
+    	if (args.length != 1) {
+            System.out.println("Not correct number of arguments");
+            System.exit(0);
+        }
+    	
+    	String fileIn = args[0];
+
+        //scan in the information
+        Scanner scanner = null;
+        try
+        {
+            scanner = new Scanner(new File(fileIn));
+        }
+        catch (FileNotFoundException e)
+        {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 }
