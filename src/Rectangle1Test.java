@@ -52,7 +52,7 @@ public class Rectangle1Test
     		invokeEx(null, this.main, args);
     	} 
     	catch (Exception e) { 
-    		e.printStackTrace(); 
+    		e.printStackTrace();
     	}
     }
 }
