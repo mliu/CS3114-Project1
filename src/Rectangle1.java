@@ -39,7 +39,7 @@ public class Rectangle1 {
             e.printStackTrace();
         }
 
-        FileProcessor parser = new FileProcessor();
+        FileProcessor parser = new FileProcessor(fileOut);
 
         while (scanner.hasNextLine()) {
             String str = scanner.nextLine().trim();;
