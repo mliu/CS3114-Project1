@@ -38,8 +38,14 @@ public class Rectangle1
         }
         catch (FileNotFoundException e)
         {
-            // TODO Auto-generated catch block
             e.printStackTrace();
+        }
+        
+        FileProcessor parser = new FileProcessor();
+        
+        while(scanner.hasNextLine()) {
+        	String str = scanner.nextLine();
+        	parser.parseString(str);
         }
     }
 }
