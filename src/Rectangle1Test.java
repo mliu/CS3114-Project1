@@ -64,7 +64,7 @@ public class Rectangle1Test
     	
     	try {
     		invokeEx(null, this.main, args[0]);
-    	} 
+    	}
     	catch (Exception e) { 
     		e.printStackTrace();
     	}
