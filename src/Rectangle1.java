@@ -41,7 +41,7 @@ public class Rectangle1 {
         FileProcessor parser = new FileProcessor();
 
         while (scanner.hasNextLine()) {
-            String str = scanner.nextLine();
+            String str = scanner.nextLine().trim();;
             parser.parseString(str);
         }
     }
