@@ -81,7 +81,9 @@ public class FileProcessor {
 
     /**
      * The initial method which is called from outside the class
-     * @param str
+     * It uses a deliminator and then passes on that string array
+     * to another method inside this class for further parsing
+     * @param str - a whole line from the input file
      */
     public void parseString(String str) {
         String plusSpaceDelim = "[ +]+";
