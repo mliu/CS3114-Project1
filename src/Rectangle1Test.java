@@ -41,23 +41,23 @@ public class Rectangle1Test
         assertNotNull(dum);
     }
     
-    public void testWrongArgCount() {
-    	String[] param1 = { "SyntaxTest.txt", "Two" };
-    	Object[] args = { param1 }; 
-    	
-    	this.main = getMethod(this.Rectangle1, "main", String[].class);
-    	
-    	try {
-    		invokeEx(null, this.main, args[0]);
-            assertFuzzyEquals("Not correct number of arguments\n", systemOut().getHistory());
-    	} 
-    	catch (Exception e) { 
-    		e.printStackTrace();
-    	}
-    }
-    
+//    public void testWrongArgCount() {
+//    	String[] param1 = { "SyntaxTest.txt", "Two" };
+//    	Object[] args = { param1 }; 
+//    	
+//    	this.main = getMethod(this.Rectangle1, "main", String[].class);
+//    	
+//    	try {
+//    		invokeEx(null, this.main, args[0]);
+//            assertFuzzyEquals("Not correct number of arguments\n", systemOut().getHistory());
+//    	} 
+//    	catch (Exception e) { 
+//    		e.printStackTrace();
+//    	}
+//    }
+//    
     public void testFile() {
-//    	String[] param1 = { "SyntaxTest.txt" };
+    	String[] param1 = { "SyntaxTest.txt" };
     	Object[] args = { param1 }; 
     	
     	this.main = getMethod(this.Rectangle1, "main", String[].class);
