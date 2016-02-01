@@ -25,28 +25,28 @@ public class FileProcessor {
 	}
 	
 	public void parseRegionsearch(String[] args) {
-	    System.out.print("Regionsearch results: ");
+	    System.out.println("Regionsearch results: ");
 	}
 	
 	public void parseRemove(String[] args) {
 	    if (args.length == 2) {
-	        System.out.print("Rectangle removed: ");
+	        System.out.println("Rectangle removed: ");
 	    }
 	    else {
-	        System.out.print("Rectangle removed: ");
+	        System.out.println("Rectangle removed: ");
 	    }
 	}
     
     public void parseSearch(String[] args) {
-        System.out.print("Rectangles found: ");
+        System.out.println("Rectangles found: ");
     }
     
     public void parseIntersections() {
-        System.out.print("Intersection pairs: ");
+        System.out.println("Intersection pairs: ");
     }
     
     public void parseDump() {
-        System.out.print("SkipList dump: ");
+        System.out.println("SkipList dump: ");
     }
     
 	public void parseString(String str) {
