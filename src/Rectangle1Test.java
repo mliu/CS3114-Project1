@@ -35,7 +35,7 @@ public class Rectangle1Test
     	Object[] args = { param1 }; 
     	    	
     	try {
-    		invokeEx(null, rect.main, args[0]);
+    		Rectangle1.main(param1);
     	}
     	catch (Exception e) { 
     		e.printStackTrace();
