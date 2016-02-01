@@ -87,7 +87,7 @@ public class FileProcessor {
      */
     public void parseString(String str) {
         String plusSpaceDelim = "[ +]+";
-        String[] tokens = str.split(plusSpaceDelim);
+        String[] tokens = str..trim().split(plusSpaceDelim);
 
         switch(tokens[0]) {
         case "insert":
