@@ -20,16 +20,6 @@ public class Rectangle1Test
     	rect = new Rectangle1();
     }
 
-    // ----------------------------------------------------------
-    /**
-     * This method is simply to get code coverage of the class declaration.
-     */
-    public void testRInit()
-    {
-        assertNotNull(rect);
-        rect.main(null);
-    }
-    
     public void testFile() {
     	String[] param1 = { "SyntaxTest.txt" };
     	Object[] args = { param1 }; 
