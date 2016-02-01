@@ -90,24 +90,24 @@ public class FileProcessor {
         String[] tokens = str.trim().split(plusSpaceDelim);
 
         switch(tokens[0]) {
-        case "insert":
-            parseInsert(tokens);
-            break;
-        case "remove":
-            parseRemove(tokens);
-            break;
-        case "regionsearch":
-            parseRegionsearch(tokens);
-            break;
-        case "search":
-            parseSearch(tokens);
-            break;
-        case "intersections":
-            parseIntersections();
-            break;
-        case "dump":
-            parseDump();
-            break;
+            case "insert":
+                parseInsert(tokens);
+                break;
+            case "remove":
+                parseRemove(tokens);
+                break;
+            case "regionsearch":
+                parseRegionsearch(tokens);
+                break;
+            case "search":
+                parseSearch(tokens);
+                break;
+            case "intersections":
+                parseIntersections();
+                break;
+            case "dump":
+                parseDump();
+                break;
         }
     }
 }
