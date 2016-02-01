@@ -13,7 +13,7 @@ public class FileProcessorTest extends TestCase {
     }
     
     public void testWrongCommand() {
-        parseString
+        parseString()
     }
 
 }
