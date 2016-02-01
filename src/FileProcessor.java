@@ -20,7 +20,7 @@ public class FileProcessor {
      * Parses the insert command
      * @param args - string array of name x y w h
      */
-    private void parseInsert(String[] args){
+    private void parseInsert(String[] args) {
         System.out.print("Rectangle inserted: (");
 
         for (int i = 1; i < args.length; i++) {
@@ -87,7 +87,7 @@ public class FileProcessor {
      */
     public void parseString(String str) {
         String plusSpaceDelim = "[ +]+";
-        String[] tokens = str..trim().split(plusSpaceDelim);
+        String[] tokens = str.trim().split(plusSpaceDelim);
 
         switch(tokens[0]) {
         case "insert":
