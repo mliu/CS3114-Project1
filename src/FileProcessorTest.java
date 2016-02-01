@@ -8,12 +8,15 @@ import student.TestCase;
 
 public class FileProcessorTest extends TestCase {
     
+    private FileProcessor processor;
+    
     public void setUp() {
-        
+        processor = new FileProcessor();
     }
     
     public void testWrongCommand() {
-        parseString()
+        processor.parseString("peanuts 7");
+        assertFuzzyEquals("", systemOut().getHistory());
     }
 
 }
