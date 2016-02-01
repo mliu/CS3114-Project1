@@ -109,7 +109,6 @@ public class FileProcessor {
                 parseDump();
                 break;
             default:
-                System.out.println("ALSKDFJLASDJF");
                 break;
         }
     }
