@@ -7,5 +7,9 @@ import student.TestCase;
  */
 
 public class FileProcessorTest extends TestCase {
+    
+    public void setUp() {
+        
+    }
 
 }
