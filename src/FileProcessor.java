@@ -13,7 +13,15 @@ public class FileProcessor {
 	}
 
 	public void parseInsert(String[] args){
-	    System.out.print("Rectangle inserted: ");
+	    System.out.print("Rectangle inserted: (");
+	    
+	    for (int i = 1; i < args.length; i++) {
+	        System.out.print(args[i]);
+	        if (i != args.length - 1) {
+	            System.out.print(", ");
+	        }
+	    }
+	    System.out.println(")");
 	}
 	
 	public void parseRegionsearch(String[] args) {
@@ -21,7 +29,12 @@ public class FileProcessor {
 	}
 	
 	public void parseRemove(String[] args) {
-	    if (args.length )
+	    if (args.length == 2) {
+	        System.out.print("Rectangle removed: ");
+	    }
+	    else {
+	        System.out.print("Rectangle removed: ");
+	    }
 	}
     
     public void parseSearch(String[] args) {
