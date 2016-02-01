@@ -6,6 +6,6 @@ import student.TestCase;
  * @version 1
  */
 
-public class FileProcessorTest {
+public class FileProcessorTest extends TestCase {
 
 }
