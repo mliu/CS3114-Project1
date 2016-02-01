@@ -10,7 +10,6 @@ import static student.testingsupport.ReflectionSupport.*;
 public class Rectangle1Test
     extends TestCase
 {
-	private Class<?> Rectangle1; 
 	private Method main;
 	private Rectangle1 rect;
     /**
@@ -18,16 +17,7 @@ public class Rectangle1Test
      */
     public void setUp()
     {
-    	try {
-    		this.Rectangle1 = reloadClassForName("Rectangle1");
-    	} 
-    	catch (Throwable e) {
-    		if (e instanceof Error) {
-    			throw e;
-    		} else {
-    			throw new RuntimeException(e);
-    		}
-    	}
+    	rect = new Rectangle1();
     }
 
     // ----------------------------------------------------------
@@ -36,16 +26,15 @@ public class Rectangle1Test
      */
     public void testRInit()
     {
-        Rectangle1 dum = new Rectangle1();
-        assertNotNull(dum);
-        Rectangle1.main(null);
+        assertNotNull(rect);
+        rect.main(null);
     }
     
     public void testFile() {
     	String[] param1 = { "SyntaxTest.txt" };
     	Object[] args = { param1 }; 
     	
-    	this.main = getMethod(this.Rectangle1, "main", String[].class);
+    	this.main = getMethod(Rectangle1, "main", String[].class);
     	
     	try {
     		invokeEx(null, this.main, args[0]);
