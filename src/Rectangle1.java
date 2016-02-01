@@ -31,7 +31,12 @@ public class Rectangle1 {
 
         // scan in the information
         Scanner scanner = null;
-        scanner = new Scanner(new File(fileIn));
+        try {
+            scanner = new Scanner(new File(fileIn));
+        }
+        catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
 
         FileProcessor parser = new FileProcessor();
 
