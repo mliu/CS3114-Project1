@@ -11,5 +11,9 @@ public class FileProcessorTest extends TestCase {
     public void setUp() {
         
     }
+    
+    public void testWrongCommand() {
+        
+    }
 
 }
