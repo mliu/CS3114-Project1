@@ -30,7 +30,6 @@ public class Rectangle1Test
     	}
     }
 
-
     // ----------------------------------------------------------
     /**
      * This method is simply to get code coverage of the class declaration.
