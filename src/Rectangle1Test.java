@@ -33,11 +33,9 @@ public class Rectangle1Test
     public void testFile() {
     	String[] param1 = { "SyntaxTest.txt" };
     	Object[] args = { param1 }; 
-    	
-    	this.main = getMethod(Rectangle1, "main", String[].class);
-    	
+    	    	
     	try {
-    		invokeEx(null, this.main, args[0]);
+    		invokeEx(null, rect.main, args[0]);
     	}
     	catch (Exception e) { 
     		e.printStackTrace();
