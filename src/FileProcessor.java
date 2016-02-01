@@ -9,11 +9,18 @@
  */
 public class FileProcessor {
 
+    /**
+     * constructor for the FileProcessor
+     */
     public FileProcessor() {
 
     }
 
-    public void parseInsert(String[] args){
+    /**
+     * Parses the insert command
+     * @param args - string array of name x y w h
+     */
+    private void parseInsert(String[] args){
         System.out.print("Rectangle inserted: (");
 
         for (int i = 1; i < args.length; i++) {
@@ -25,11 +32,23 @@ public class FileProcessor {
         System.out.println(")");
     }
 
-    public void parseRegionsearch(String[] args) {
+    
+    /**
+     * Parses the regionSearch command
+     * and prints out the parsed pieces
+     * @param args - a string array of x, y
+     */
+    private void parseRegionsearch(String[] args) {
         System.out.println("Regionsearch results: ");
     }
 
-    public void parseRemove(String[] args) {
+    
+    /**
+     * Parses the remove command
+     * @param args - a string array of either the name of rectangle
+     * or the x y w h of a rectangle
+     */
+    private void parseRemove(String[] args) {
         if (args.length == 2) {
             System.out.println("Rectangle removed: ");
         }
@@ -38,18 +57,32 @@ public class FileProcessor {
         }
     }
 
-    public void parseSearch(String[] args) {
+    /**
+     * parses the search command
+     * @param args - string array containing the name of rectangle
+     */
+    private void parseSearch(String[] args) {
         System.out.println("Rectangles found: ");
     }
 
-    public void parseIntersections() {
+    /**
+     * parses the intersection command
+     */
+    private void parseIntersections() {
         System.out.println("Intersection pairs: ");
     }
 
-    public void parseDump() {
+    /**
+     * parses the dump command
+     */
+    private void parseDump() {
         System.out.println("SkipList dump: ");
     }
 
+    /**
+     * The initial method which is called from outside the class
+     * @param str
+     */
     public void parseString(String str) {
         String plusSpaceDelim = "[ +]+";
         String[] tokens = str.split(plusSpaceDelim);
