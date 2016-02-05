@@ -8,4 +8,12 @@ public class SkipNode<E> {
         key = newKey;
         forward = pointer;
     }
+    
+    public E element() {
+        return key;
+    }
+    
+    public SkipNode forward() {
+        return forward;
+    }
 }
