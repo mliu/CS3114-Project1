@@ -15,13 +15,12 @@ public class FileProcessor {
     public FileProcessor() {
 
     }
-
+    
     /**
-     * Parses the insert command
-     * @param args - string array of name x y w h
+     * prints the command out
+     * @param args - the array of values to consoled
      */
-    private void parseInsert(String[] args) {
-        System.out.print("Rectangle inserted: (");
+    private void printOut(String[] args) {
 
         for (int i = 1; i < args.length; i++) {
             System.out.print(args[i]);
@@ -34,12 +33,37 @@ public class FileProcessor {
 
     
     /**
+     * Parses the insert command
+     * @param args - string array of name x y w h
+     */
+    private void parseInsert(String[] args) {
+        
+        //print what happened
+        System.out.print("Rectangle inserted: (");
+        this.printOut(args);
+        
+        //run the command
+        String name = args[1];
+        int x = Integer.parseInt(args[2]);
+        int y = Integer.parseInt(args[3]);
+        int w = Integer.parseInt(args[4]);
+        int h = Integer.parseInt(args[5]);
+    }
+
+    
+    /**
      * Parses the regionSearch command
      * and prints out the parsed pieces
      * @param args - a string array of x, y
      */
     private void parseRegionsearch(String[] args) {
-        System.out.println("Regionsearch results: ");
+        System.out.print("Regionsearch results: (");
+        this.printOut(args);
+        
+        int x = Integer.parseInt(args[1]);
+        int y = Integer.parseInt(args[2]);
+        int w = Integer.parseInt(args[3]);
+        int h = Integer.parseInt(args[4]);
     }
 
     
@@ -50,10 +74,19 @@ public class FileProcessor {
      */
     private void parseRemove(String[] args) {
         if (args.length == 2) {
-            System.out.println("Rectangle removed: ");
+            System.out.print("Rectangle removed: (");
+            this.printOut(args);
+            
+            String name = args[1];
         }
         else {
-            System.out.println("Rectangle removed: ");
+            System.out.print("Rectangle removed: (");
+            this.printOut(args);
+            
+            int x = Integer.parseInt(args[1]);
+            int y = Integer.parseInt(args[2]);
+            int w = Integer.parseInt(args[3]);
+            int h = Integer.parseInt(args[4]);
         }
     }
 
@@ -62,7 +95,10 @@ public class FileProcessor {
      * @param args - string array containing the name of rectangle
      */
     private void parseSearch(String[] args) {
-        System.out.println("Rectangles found: ");
+        System.out.print("Rectangles found: (");
+        this.printOut(args);
+        
+        String name = args[1];
     }
 
     /**
@@ -76,9 +112,10 @@ public class FileProcessor {
      * parses the dump command
      */
     private void parseDump() {
-        System.out.println("SkipList dump: ");
+        System.out.println("SkipList dump");
     }
 
+    
     /**
      * The initial method which is called from outside the class
      * It uses a deliminator and then passes on that string array
