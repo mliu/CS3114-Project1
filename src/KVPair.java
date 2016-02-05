@@ -1,5 +1,5 @@
 
-public class KVPair<String extends Comparable<String>, Rectangle> implements Comparable<KVPair<String, Rectangle>> {
+public class KVPair implements Comparable<KVPair> {
 
     private String key;
     private Rectangle value;
@@ -9,7 +9,7 @@ public class KVPair<String extends Comparable<String>, Rectangle> implements Com
         value = newValue;
     }
     
-    public int compareTo(KVPair<String, Rectangle> it) {
+    public int compareTo(KVPair it) {
         return key.compareTo(it.key());
     }
     
@@ -25,7 +25,7 @@ public class KVPair<String extends Comparable<String>, Rectangle> implements Com
         return value;
     }
     
-    public String toString() {
-        return key + ", " + Rectangle.toString();
+    public java.lang.String toString() {
+        return key + ", " + value.toString();
     }
 }
