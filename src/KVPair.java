@@ -1,10 +1,10 @@
 
-public class KVPair implements Comparable<KVPair> {
+public class KVPair<K extends Comparable<K>, E> implements Comparable<KVPair<K,E>> {
 
-    private String key;
-    private Rectangle value;
+    private K key;
+    private E value;
     
-    public KVPair(String newKey, Rectangle newValue) {
+    public KVPair(K newKey, E newValue) {
         key = newKey;
         value = newValue;
     }
@@ -17,15 +17,15 @@ public class KVPair implements Comparable<KVPair> {
         return key.compareTo(it);
     }
     
-    public String key() {
+    public K key() {
         return key;
     }
     
-    public Rectangle value() {
+    public E value() {
         return value;
     }
     
-    public java.lang.String toString() {
-        return key + ", " + value.toString();
+    public String toString() {
+        return key.toString() + ", " + value.toString();
     }
 }
