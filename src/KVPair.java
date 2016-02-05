@@ -9,11 +9,11 @@ public class KVPair<K extends Comparable<K>, E> implements Comparable<KVPair<K,E
         value = newValue;
     }
     
-    public int compareTo(KVPair it) {
+    public int compareTo(KVPair<K,E> it) {
         return key.compareTo(it.key());
     }
     
-    public int compareTo(String it) {
+    public int compareTo(K it) {
         return key.compareTo(it);
     }
     
