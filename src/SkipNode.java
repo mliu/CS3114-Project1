@@ -2,18 +2,18 @@
 public class SkipNode<E> {
 
     private E key;
-    private SkipNode forward;
+    private SkipNode[] forward;
     
-    public SkipNode(E newKey, SkipNode pointer) {
+    public SkipNode(E newKey, int newLevel) {
         key = newKey;
-        forward = pointer;
+        forward = new SkipNode[newLevel];
     }
     
     public E element() {
         return key;
     }
     
-    public SkipNode forward() {
+    public SkipNode[] forward() {
         return forward;
     }
 }
