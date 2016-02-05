@@ -10,6 +10,22 @@ public class KVPair<String extends Comparable<String>, Rectangle> implements Com
     }
     
     public int compareTo(KVPair<String, Rectangle> it) {
-        return strcmp(key, it.key());
+        return key.compareTo(it.key());
+    }
+    
+    public int compareTo(String it) {
+        return key.compareTo(it);
+    }
+    
+    public String key() {
+        return key;
+    }
+    
+    public Rectangle value() {
+        return value;
+    }
+    
+    public String toString() {
+        return key + ", " + Rectangle.toString();
     }
 }

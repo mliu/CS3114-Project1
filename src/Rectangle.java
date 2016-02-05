@@ -9,5 +9,9 @@ public class Rectangle {
         width = w;
         height = h;
     }
+    
+    public String toString() {
+        return "(" + x + ", " + y + ", " + w + ", " + h + ")";
+    }
 
 }
