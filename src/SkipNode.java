@@ -6,7 +6,7 @@ public class SkipNode<E> {
     
     public SkipNode(E newElement, int newLevel) {
         element = newElement;
-        forward = new SkipNode[newLevel];
+        forward = new SkipNode[newLevel-1];
     }
     
     public E element() {

@@ -22,6 +22,8 @@ public class SkipList<K extends Comparable<K>,E> {
             newHead.forward[x] = head.forward[x];
         }
         head = newHead;
+        level = newLevel;
+        System.out.println("New level: " + level);
     }
 
     private int randomLevel() {
