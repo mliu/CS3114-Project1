@@ -65,4 +65,6 @@ public class SkipList<K extends Comparable<K>,E> {
         size++;                       // Increment dictionary size
         return true;
     }
+    
+    public void search(K key)
 }
