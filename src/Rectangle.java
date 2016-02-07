@@ -13,7 +13,7 @@ public class Rectangle {
     }
     
     public String toString() {
-        return "(" + x + ", " + y + ", " + width + ", " + height + ")";
+        return "(" + name + ", " + x + ", " + y + ", " + width + ", " + height + ")";
     }
 
 }
