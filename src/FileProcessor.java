@@ -39,12 +39,7 @@ public class FileProcessor {
      * Parses the insert command
      * @param args - string array of name x y w h
      */
-    private void parseInsert(String[] args) {
-        
-        //print what happened
-        System.out.print("Rectangle inserted: (");
-        this.printOut(args);
-        
+    private void parseInsert(String[] args) {        
         //run the command
         String name = args[1];
         int x = Integer.parseInt(args[2]);
@@ -54,7 +49,10 @@ public class FileProcessor {
         
         Rectangle rect = new Rectangle(name, x, y, w, h);
         KVPair<String, Rectangle> pair = new KVPair(name, rect);
-        list.insert(pair);
+        if(list.insert(pair)) {
+            System.out.print("Rectangle inserted: (");
+            this.printOut(args);
+        }
     }
 
     

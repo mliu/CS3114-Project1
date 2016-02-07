@@ -19,7 +19,7 @@ public class SkipList<K extends Comparable<K>,E> {
     
     private void adjustHead(int newLevel) {
         SkipNode newHead = new SkipNode(null, newLevel);
-        for(int x = 0; x < level; x++) {
+        for(int x = 0; x <= level; x++) {
             newHead.forward[x] = head.forward[x];
         }
         head = newHead;
@@ -33,13 +33,10 @@ public class SkipList<K extends Comparable<K>,E> {
     }
     
     public void dump() {
-        System.out.println("Node has depth " + level + ", Value (null)");
+        System.out.println("Node has depth " + (level+1) + ", Value (null)");
         SkipNode tempNode = head;
-        System.out.println("Size: " + size);
         for (int i = 0; i < size; i++) {
             tempNode = tempNode.forward[0];
-            System.out.println("debug: " + tempNode.element().toString());
-            System.out.println(tempNode.forward);
             System.out.println("Node has depth " + tempNode.forward.length + 
                     ", Value " + ((KVPair) tempNode.element()).value().toString());
         }
