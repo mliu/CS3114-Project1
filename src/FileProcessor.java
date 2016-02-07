@@ -110,9 +110,6 @@ public class FileProcessor {
             return;
         }
 
-        System.out.println("Rectangles found:");
-        System.out.println(rectList.size());
-        System.out.println(rectList.get(0).toString());
         for(int i = 0; i < rectList.size(); i++) {
             System.out.println(rectList.get(i).toString());
         }
