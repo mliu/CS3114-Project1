@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * 
  */
@@ -101,9 +103,18 @@ public class FileProcessor {
      */
     private void parseSearch(String[] args) {
         System.out.println("Rectangles found:");
-        this.printOut(args);
         
         String name = args[1];
+        ArrayList<Rectangle> rectList = (ArrayList<Rectangle>) list.search(name);
+        
+        if (rectList == null) {
+            System.out.println("Rectangle not found: " + name);
+     
+        }
+        
+        for(int i = 0; i < rectList.size(); i++) {
+            rectList.get(i).toString();
+        }
     }
 
     /**
