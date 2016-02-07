@@ -71,11 +71,11 @@ public class SkipList<K extends Comparable<K>,E> {
         SkipNode x = head;                     // Dummy header node
         for (int i=level; i>=0; i--)           // For each level...
           while ((x.forward[i] != null) &&
-                 (key.compareTo(x.forward[i].element().key()) > 0)) // go forward
+                 (key.compareTo(((KVPair<K,E>) x.forward[i].element()).key()) > 0)) // go forward
             x = x.forward[i];              // Go one last step
         x = x.forward[0];  // Move to actual record, if it exists
-        if ((x != null) && (key.compareTo(x.element().key()) == 0))
-          return x.element();
+        if ((x != null) && (key.compareTo(((KVPair<K,E>) x.element()).key()) == 0))
+          return (KVPair<K, E>) x.element();
         else
           return null;
       }

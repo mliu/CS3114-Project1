@@ -100,7 +100,7 @@ public class FileProcessor {
      * @param args - string array containing the name of rectangle
      */
     private void parseSearch(String[] args) {
-        System.out.print("Rectangles found: (");
+        System.out.println("Rectangles found:");
         this.printOut(args);
         
         String name = args[1];
