@@ -101,9 +101,7 @@ public class FileProcessor {
      * parses the search command
      * @param args - string array containing the name of rectangle
      */
-    private void parseSearch(String[] args) {
-        System.out.println("Rectangles found:");
-        
+    private void parseSearch(String[] args) {        
         String name = args[1];
         ArrayList<Rectangle> rectList = list.search(name);
         
@@ -112,6 +110,7 @@ public class FileProcessor {
             return;
         }
 
+        System.out.println("Rectangles found:");
         for(int i = 0; i < rectList.size(); i++) {
             System.out.println(rectList.get(i).toString());
         }
