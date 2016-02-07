@@ -23,7 +23,6 @@ public class SkipList<K extends Comparable<K>,E> {
         }
         head = newHead;
         level = newLevel;
-        System.out.println("New level: " + level);
     }
 
     private int randomLevel() {
@@ -33,7 +32,20 @@ public class SkipList<K extends Comparable<K>,E> {
     }
     
     public void dump() {
+
+        System.out.println("Node has depth" + level + ", Value (null)");
         
+        SkipNode tempNode = head;
+        for (int i = 0; i < size; i++) {
+            
+            tempNode = tempNode.forward[0];
+            
+            System.out.println("Node has depth" + tempNode.forward.length + ", Value " + ((KVPair) tempNode.element()).value().toString());
+        }
+        
+        
+        //skip list size
+        System.out.println("SkipList size is: " + size);
     }
 
     /** Insert a KVPair into the skiplist */

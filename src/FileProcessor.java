@@ -117,7 +117,8 @@ public class FileProcessor {
      * parses the dump command
      */
     private void parseDump() {
-        System.out.println("SkipList dump");
+        System.out.println("SkipList dump:");
+        list.dump();
     }
 
     
