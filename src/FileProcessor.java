@@ -105,13 +105,13 @@ public class FileProcessor {
         System.out.println("Rectangles found:");
         
         String name = args[1];
-        ArrayList<Rectangle> rectList = (ArrayList<Rectangle>) list.search(name);
+        ArrayList<Rectangle> rectList = list.search(name);
         
         if (rectList == null) {
             System.out.println("Rectangle not found: " + name);
-     
+            return;
         }
-        
+
         for(int i = 0; i < rectList.size(); i++) {
             rectList.get(i).toString();
         }

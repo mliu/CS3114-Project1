@@ -1,4 +1,5 @@
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Random;
 
 public class SkipList<K extends Comparable<K>,E> {
@@ -66,7 +67,7 @@ public class SkipList<K extends Comparable<K>,E> {
         return true;
     }
     
-    public KVPair<K,E> search(Comparable<K> key) {
+    public ArrayList<E> search(Comparable<K> key) {
         boolean found = false;
         SkipNode x = head;                     // Dummy header node
         for (int i=level; i>=0; i--) {        // For each level...
@@ -75,8 +76,16 @@ public class SkipList<K extends Comparable<K>,E> {
           }
         }
         x = x.forward[0];  // Move to actual record, if it exists
-        if ((x != null) && (key.compareTo(((KVPair<K,E>) x.element()).key()) == 0))
-          return (KVPair<K, E>) x.element();
+        if ((x != null) && (key.compareTo(((KVPair<K,E>) x.element()).key()) == 0)) {
+            ArrayList<E> foundList = new ArrayList();
+            
+          while ((x != null) && key.compareTo(((KVPair<K,E>) x.element()).key()) != 0) {
+             foundList.add( (E)((KVPair<K,E>) x.element()).value());
+             
+             x = x.forward[0];
+          }
+          return foundList;
+        }
         else
           return null;
       }
