@@ -36,6 +36,8 @@ public class SkipList<K extends Comparable<K>,E> {
         System.out.println("Node has depth " + level + ", Value (null)");
         SkipNode tempNode = head;
         for (int i = 0; i < size; i++) {
+            System.out.println("debug: " + tempNode);
+            System.out.println(tempNode.forward[0]);
             tempNode = tempNode.forward[0];
             System.out.println("Node has depth " + tempNode.forward.length + 
                     ", Value " + ((KVPair) tempNode.element()).value().toString());
