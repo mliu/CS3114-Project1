@@ -35,10 +35,11 @@ public class SkipList<K extends Comparable<K>,E> {
     public void dump() {
         System.out.println("Node has depth " + level + ", Value (null)");
         SkipNode tempNode = head;
+        System.out.println("Size: " + size);
         for (int i = 0; i < size; i++) {
             tempNode = tempNode.forward[0];
             System.out.println("debug: " + tempNode.element().toString());
-            System.out.println(tempNode.forward[0].element().toString());
+            System.out.println(tempNode.forward);
             System.out.println("Node has depth " + tempNode.forward.length + 
                     ", Value " + ((KVPair) tempNode.element()).value().toString());
         }

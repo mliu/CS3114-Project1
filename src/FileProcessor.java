@@ -113,7 +113,7 @@ public class FileProcessor {
         }
 
         for(int i = 0; i < rectList.size(); i++) {
-            rectList.get(i).toString();
+            System.out.println(rectList.get(i).toString());
         }
     }
 

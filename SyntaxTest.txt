@@ -7,7 +7,7 @@ insert inExistRec_0 1 1 -1 -2
  regionsearch   11 11                 0 0
 
 intersections
-
+search r_r
 dump
 
 search r_r
