@@ -66,5 +66,7 @@ public class SkipList<K extends Comparable<K>,E> {
         return true;
     }
     
-    public void search(K key)
+    public void search(K key) {
+        
+    }
 }
