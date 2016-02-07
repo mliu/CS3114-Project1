@@ -9,11 +9,12 @@
  */
 public class FileProcessor {
 
+    private SkipList<String, Rectangle> list;
     /**
      * constructor for the FileProcessor
      */
     public FileProcessor() {
-
+        list = new SkipList();
     }
     
     /**
@@ -48,6 +49,10 @@ public class FileProcessor {
         int y = Integer.parseInt(args[3]);
         int w = Integer.parseInt(args[4]);
         int h = Integer.parseInt(args[5]);
+        
+        Rectangle rect = new Rectangle(name, x, y, w, h);
+        KVPair<String, Rectangle> pair = new KVPair(name, rect);
+        list.insert(pair);
     }
 
     
