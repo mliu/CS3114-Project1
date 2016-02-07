@@ -80,14 +80,13 @@ public class SkipList<K extends Comparable<K>,E> {
         }
         x = x.forward[0];  // Move to actual record, if it exists
         if ((x != null) && (key.compareTo(((KVPair<K,E>) x.element()).key()) == 0)) {
-            ArrayList<E> foundList = new ArrayList();
-            
-          while ((x != null) && key.compareTo(((KVPair<K,E>) x.element()).key()) != 0) {
-             foundList.add( (E)((KVPair<K,E>) x.element()).value());
-             
-             x = x.forward[0];
-          }
-          return foundList;
+            ArrayList<E> foundList = new ArrayList();            
+            while ((x != null) && key.compareTo(((KVPair<K,E>) x.element()).key()) == 0) {
+                System.out.println("Found: " + ((KVPair<K,E>) x.element()).value().toString());
+                foundList.add((E)((KVPair<K,E>) x.element()).value());
+                x = x.forward[0];
+            }
+            return foundList;
         }
         else
           return null;
