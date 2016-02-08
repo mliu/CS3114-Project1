@@ -1,5 +1,6 @@
 
-public class KVPair<K extends Comparable<K>, E> implements Comparable<KVPair<K,E>> {
+public class KVPair<K extends Comparable<K>, E> 
+implements Comparable<KVPair<K,E>> {
 
     private K key;
     private E value;
