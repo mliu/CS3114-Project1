@@ -12,8 +12,8 @@ public class SkipList<K extends Comparable<K>, E> {
     private SkipNode head;
     
     public SkipList() {
+        level = 1;
         head = new SkipNode(null, level);
-        level = -1;
         size = 0;
     }
     
@@ -72,8 +72,8 @@ public class SkipList<K extends Comparable<K>, E> {
     }
     
     public ArrayList<E[]> intersections() {
-        SkipNode<E> outerIterator = head;
-        SkipNode<E> innerIterator = head;
+        SkipNode<E> outerIterator = head.forward[0];
+        SkipNode<E> innerIterator = head.forward[0];
         ArrayList<E[]> intersectionList = new ArrayList();
         
         for (int i = 0; i < size; i++) {
@@ -92,6 +92,7 @@ public class SkipList<K extends Comparable<K>, E> {
                 innerIterator = innerIterator.forward[0];
             }
             outerIterator = outerIterator.forward[0];
+            innerIterator = head.forward[0];
         }
         
         return intersectionList;
