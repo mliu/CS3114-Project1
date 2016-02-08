@@ -68,6 +68,7 @@ public class Rectangle {
     }
     
     /**
+     * Checks rectangle equality
      * @param rect Rectangle to check equality
      * @return true if this Rectangle is equal to rect, otherwise false
      */
