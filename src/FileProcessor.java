@@ -76,17 +76,13 @@ public class FileProcessor {
         int h = Integer.parseInt(args[4]);
         
         if (w <= 0 || h <= 0) {
-            System.out.println("Rectangle rejected: " + x + ", " + y + ", " + w + ", " + h);
+            System.out.println("Rectangle rejected: (" + x + ", " + y + ", " + w + ", " + h + ")");
             return;
         }
         
         ArrayList<Rectangle> rectList = list.regionSearch(x, y, w, h);
-        
-        if (rectList.size() == 0) {
-            return;
-        }
 
-        System.out.println("Regionsearch results for: " + x + ", " + y + ", " + w + ", " + h);
+        System.out.println("Rectangles intersecting region (" + x + ", " + y + ", " + w + ", " + h + "):");
         for (int i = 0; i < rectList.size(); i++) {
             System.out.println(rectList.get(i).toString());
         }
@@ -103,16 +99,27 @@ public class FileProcessor {
             String name = args[1];
             
             Rectangle rect = list.remove(name);
+            
+            if (rect == null) {
+                System.out.println("Rectangle not removed: " + name);
+                return;
+            }
+            
             System.out.println("Rectangle removed: " + rect.toString());
         }
-        else {
-            System.out.print("Rectangle removed: (");
-            this.printOut(args);
-            
+        else {            
             int x = Integer.parseInt(args[1]);
             int y = Integer.parseInt(args[2]);
             int w = Integer.parseInt(args[3]);
             int h = Integer.parseInt(args[4]);
+            
+            // Check for rejections
+            if (w <= 0 || h <= 0 || (x + w > 1024) || (x + w < 0) ||
+                    (y + h > 1024) || (y + h < 0)) {
+                System.out.print("Rectangle rejected: (");
+                this.printOut(args);
+                return;
+            }
             
             Rectangle temp = new Rectangle("", x, y, w, h);
         }

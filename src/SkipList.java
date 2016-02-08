@@ -58,7 +58,7 @@ public class SkipList<K extends Comparable<K>, E> {
         if (level < newLevel)
             adjustHead(newLevel);
         @SuppressWarnings("unchecked") // Generic array allocation
-        SkipNode[] update = new SkipNode[level+  1];
+        SkipNode[] update = new SkipNode[level + 1];
         SkipNode<KVPair<K, E>> x = head;        // Start at header node
         for (int i = level; i >= 0; i--) { // Find insert position
             while ((x.forward[i] != null) && (k.compareTo(
