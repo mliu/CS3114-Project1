@@ -20,8 +20,8 @@ public class Rectangle {
                 ", " + width + ", " + height + ")";
     }
     
-    public int compareTo(Rectangle rect) {
-        
+    public int equals(Rectangle rect) {
+        return (x == rect.x && y == rect.y && width == rect.width && height == rect.height;
     }
 
 }
