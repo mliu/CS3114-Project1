@@ -16,7 +16,7 @@ public class FileProcessor {
      * constructor for the FileProcessor
      */
     public FileProcessor() {
-        list = new SkipList();
+        list = new SkipList<String, Rectangle>();
     }
     
     /**
@@ -56,7 +56,7 @@ public class FileProcessor {
         }
         
         Rectangle rect = new Rectangle(name, x, y, w, h);
-        KVPair<String, Rectangle> pair = new KVPair(name, rect);
+        KVPair<String, Rectangle> pair = new KVPair<String, Rectangle>(name, rect);
         if (list.insert(pair)) {
             System.out.print("Rectangle inserted: (");
             this.printOut(args);
@@ -74,6 +74,11 @@ public class FileProcessor {
         int y = Integer.parseInt(args[2]);
         int w = Integer.parseInt(args[3]);
         int h = Integer.parseInt(args[4]);
+        
+        if (w <= 0 || h <= 0) {
+            System.out.println("Rectangle rejected: " + x + ", " + y + ", " + w + ", " + h);
+            return;
+        }
         
         ArrayList<Rectangle> rectList = list.regionSearch(x, y, w, h);
         
@@ -98,7 +103,7 @@ public class FileProcessor {
             String name = args[1];
             
             Rectangle rect = list.remove(name);
-            System.out.print("Rectangle ");
+            System.out.println("Rectangle removed: " + rect.toString());
         }
         else {
             System.out.print("Rectangle removed: (");
@@ -108,6 +113,9 @@ public class FileProcessor {
             int y = Integer.parseInt(args[2]);
             int w = Integer.parseInt(args[3]);
             int h = Integer.parseInt(args[4]);
+            
+            Rectangle temp = new Rectangle("", x, y, w, h);
+            
         }
     }
 
