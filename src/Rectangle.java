@@ -66,4 +66,22 @@ public class Rectangle {
     public int getH() {
         return height;
     }
+    
+    /**
+     * @param rect Rectangle to check equality
+     * @return true if this Rectangle is equal to rect, otherwise false
+     */
+    public boolean equals(Rectangle rect) {
+        return (x == rect.x && y == rect.y && width == rect.width && height == rect.height);
+    }
+    
+    /**
+     * Checks rectangle intersection
+     * @param rect Rectangle to check intersection
+     * @return true if this Rectangle intersects rect, otherwise false
+     */
+    public boolean intersects(Rectangle rect) {
+        return (Math.abs(x - rect.x) * 2 < (width + rect.width)) &&
+                (Math.abs(y - rect.y) * 2 < (height + rect.height));
+    }
 }
