@@ -20,7 +20,7 @@ public class Rectangle {
                 ", " + width + ", " + height + ")";
     }
     
-    public int equals(Rectangle rect) {
+    public boolean equals(Rectangle rect) {
         return (x == rect.x && y == rect.y && width == rect.width && height == rect.height);
     }
 
