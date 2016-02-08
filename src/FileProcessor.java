@@ -119,6 +119,12 @@ public class FileProcessor {
      */
     private void parseIntersections() {
         System.out.println("Intersection pairs: ");
+        
+        ArrayList<Rectangle[]> rectList = list.intersections();
+        
+        for(int i = 0; i < rectList.size(); i++) {
+            System.out.println(rectList.get(i)[0].toString());
+        }
     }
 
     /**

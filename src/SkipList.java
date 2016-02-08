@@ -77,13 +77,24 @@ public class SkipList<K extends Comparable<K>, E> {
         ArrayList<E[]> intersectionList = new ArrayList();
         
         for (int i = 0; i < size; i++) {
+            Rectangle outerRect = (Rectangle) 
+                    ((KVPair) outerIterator.element()).value();
             for (int j = 0; j < size; j++) {
-                Rectangle rect = (Rectangle) ((KVPair) innerIterator.element()).value();
+                Rectangle innerRect = (Rectangle) 
+                        ((KVPair) innerIterator.element()).value();
+                
+                if (!outerRect.equals(innerRect) && outerRect.intersects(innerRect)) {
+                    Rectangle[] temp = new Rectangle[2];
+                    temp[0] = outerRect;
+                    temp[1] = innerRect;
+                }
+                
+                innerIterator = innerIterator.forward[0];
             }
             outerIterator = outerIterator.forward[0];
         }
         
-        return null;
+        return intersectionList;
     }
     
     public ArrayList<E> search(Comparable<K> key) {
