@@ -25,7 +25,7 @@ public class Rectangle {
     }
     
     public boolean intersects(Rectangle rect) {
-        return (rect.x + rect.width) < x || (x + width) < rect.x || (rect.y + rect.height) < y || (y + height) < rect.y );
+        return (rect.x + rect.width) < x || (x + width) < rect.x || (rect.y + rect.height) < y || (y + height) < rect.y ));
     }
 
 }
