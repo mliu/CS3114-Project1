@@ -1,12 +1,24 @@
-
+/**
+ * Rectangle holds the values of a rectangle
+ * 
+ * @author jordanrw
+ * @author mliu95
+ * @version 1
+ */
 public class Rectangle {
 
-    public int x;
-    public int y;
-    public int width;
-    public int height;
+    public int x, y, width, height;
     public String name;
     
+    /**
+     * Constructor of the Rectangle
+     * 
+     * @param newName - string of the rectangle
+     * @param xPos - x of rectangle
+     * @param yPos - y of rectangle
+     * @param w - width of rectangle
+     * @param h - height of rectangle
+     */
     public Rectangle(String newName, int xPos, int yPos, int w, int h) {
         name = newName;
         x = xPos;
@@ -15,18 +27,43 @@ public class Rectangle {
         height = h;
     }
     
+    /**
+     * toString for Rectangle
+     * @return string of rectangles values
+     */
     public String toString() {
-        return name + ", " + x + ", " + y + 
-                ", " + width + ", " + height;
-    }
-    
-    public boolean equals(Rectangle rect) {
-        return (x == rect.x && y == rect.y && width == rect.width && height == rect.height);
-    }
-    
-    public boolean intersects(Rectangle rect) {
-        return (Math.abs(x - rect.x) * 2 < (width + rect.width)) &&
-                (Math.abs(y - rect.y) * 2 < (height + rect.height));
+        return "(" + name + ", " + x + ", " + y + ", " + width + ", " + height + ")";
     }
 
+    /**
+     * getter for x of rectangle
+     * @return x 
+     */
+    public int getX() {
+        return x;
+    }
+    
+    /**
+     * getter for the y of rectangle
+     * @return y
+     */
+    public int getY() {
+        return y;
+    }
+    
+    /**
+     * getter for width of rectangle
+     * @return width 
+     */
+    public int getW() {
+        return width;
+    }
+    
+    /**
+     * getter for height of rectangle
+     * @return height
+     */
+    public int getH() {
+        return height;
+    }
 }
