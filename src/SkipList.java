@@ -83,7 +83,7 @@ public class SkipList<K extends Comparable<K>, E> {
                 Rectangle innerRect = (Rectangle) 
                         ((KVPair) innerIterator.element()).value();
                 
-                if (!outerRect.equals(innerRect) && outerRect.intersects(innerRect)) {
+                if (i != j && outerRect.intersects(innerRect)) {
                     Rectangle[] temp = new Rectangle[2];
                     temp[0] = outerRect;
                     temp[1] = innerRect;

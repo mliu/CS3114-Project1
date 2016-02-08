@@ -16,8 +16,8 @@ public class Rectangle {
     }
     
     public String toString() {
-        return "(" + name + ", " + x + ", " + y + 
-                ", " + width + ", " + height + ")";
+        return name + ", " + x + ", " + y + 
+                ", " + width + ", " + height;
     }
     
     public boolean equals(Rectangle rect) {
