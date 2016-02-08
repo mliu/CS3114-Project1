@@ -10,7 +10,7 @@ public class KVPair<K extends Comparable<K>, E>
         value = newValue;
     }
     
-    public int compareTo(KVPair<K,E> it) {
+    public int compareTo(KVPair<K, E> it) {
         return key.compareTo(it.key());
     }
     
