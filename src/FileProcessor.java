@@ -49,7 +49,7 @@ public class FileProcessor {
         
         Rectangle rect = new Rectangle(name, x, y, w, h);
         KVPair<String, Rectangle> pair = new KVPair(name, rect);
-        if(list.insert(pair)) {
+        if (list.insert(pair)) {
             System.out.print("Rectangle inserted: (");
             this.printOut(args);
         }
@@ -109,7 +109,7 @@ public class FileProcessor {
         }
 
         System.out.println("Rectangles found:");
-        for(int i = 0; i < rectList.size(); i++) {
+        for (int i = 0; i < rectList.size(); i++) {
             System.out.println(rectList.get(i).toString());
         }
     }

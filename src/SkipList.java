@@ -67,6 +67,19 @@ public class SkipList<K extends Comparable<K>,E> {
         return true;
     }
     
+    public ArrayList<E[]> intersections() {
+        SkipNode outerIterator = head;
+        SkipNode innerIterator = head;
+        
+        for(int i=0; i < size; i++) {
+            for(int j = 0; j < size; j++) {
+                
+            }
+        }
+        
+        return null;
+    }
+    
     public ArrayList<E> search(Comparable<K> key) {
         boolean found = false;
         SkipNode x = head;                     // Dummy header node
