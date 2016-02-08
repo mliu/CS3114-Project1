@@ -19,5 +19,9 @@ public class Rectangle {
         return "(" + name + ", " + x + ", " + y + 
                 ", " + width + ", " + height + ")";
     }
+    
+    public int compareTo(Rectangle rect) {
+        
+    }
 
 }
