@@ -12,13 +12,15 @@ insert r4 10 10 5 5
  regionsearch   11 11                 0 0
 
 intersections
-search r_r
+search r1
 dump
 
+search r1
 search r_r
-search r4
 
-remove r_r
-remove 1 1 0 0
+remove r1
+remove 10 10 5 5
+
+dump
 	
 regionsearch   -5 -5 20 20 

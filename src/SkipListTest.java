@@ -30,9 +30,9 @@ public class SkipListTest extends TestCase {
         KVPair kv1 = new KVPair("rect1", rect1);
         KVPair kv2 = new KVPair("rect2", rect2);
         KVPair kv3 = new KVPair("rect3", rect3);
-        KVPair kv4 = new KVPair("rect4", rect4);
+        KVPair kv4 = new KVPair("sameName", rect4);
         KVPair kv5 = new KVPair("rect5", rect5);
-        KVPair kv6 = new KVPair("rect6", rect6);
+        KVPair kv6 = new KVPair("sameName", rect6);
         
         
         list.insert(kv1);
@@ -73,7 +73,7 @@ public class SkipListTest extends TestCase {
     public void testIntersections() {
 
         this.addValidStuff();
-        ArrayList<Rectangle> rectList = list.intersection(3, 3, 3, 3);
+        ArrayList<Rectangle> rectList = list.intersections();
         
         assertEquals(2, rectList.size());
     }
@@ -98,6 +98,14 @@ public class SkipListTest extends TestCase {
         
         assertEquals(4, rectList.size());
     }
+    
+    public void testRegionSearch2() {
+        
+        this.addValidStuff();
+        ArrayList<Rectangle> rectList = list.regionSearch(65, 65, 5, 10);
+        
+        assertEquals(1, rectList.size());
+    }
    
     //Remove
     public void testRemoveName() {
@@ -109,7 +117,7 @@ public class SkipListTest extends TestCase {
     
     public void testRemoveCoordinates() {
         this.addValidStuff();
-        list.remove(2, 2, 4, 4);
+//        list.remove();
         
         assertEquals(5, list.getSize());
     }

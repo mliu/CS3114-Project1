@@ -46,6 +46,10 @@ public class SkipList<K extends Comparable<K>, E> {
         //skip list size
         System.out.println("SkipList size is: " + size);
     }
+    
+    public int getSize() {
+        return size;
+    }
 
     /** Insert a KVPair into the skiplist */
     public boolean insert(KVPair<K, E> it) {
@@ -102,6 +106,10 @@ public class SkipList<K extends Comparable<K>, E> {
     public ArrayList<E> regionSearch(int x, int y, int w, int h) {
         ArrayList<E> foundList = new ArrayList();
         
+        if (x < 0 || y < 0 || w < 0 || h < 0) {
+            return foundList;
+        }
+        
         //search for the given region
         SkipNode tempNode = head;
         for (int i = 0; i < size; i++) {
@@ -123,18 +131,45 @@ public class SkipList<K extends Comparable<K>, E> {
         return foundList;
     }
     
-    public E remove(Comparable<K> key) {        
+    public E remove(Comparable<K> key) {
+        System.out.println("REMOVING " + key + "==========================");
+        E removed = null;
         SkipNode x = head;
-        SkipNode[] update = new SkipNode[level + 1];
+        SkipNode remove = null;
         for (int i = level; i >= 0; i--) {
             while ((x.forward[i] != null) && 
                     key.compareTo(((KVPair<K, E>) 
                             x.forward[i].element()).key()) != 0) {
+                // Search until we find the first instance of a SkipNode with key
+                System.out.print(".");
                 x = x.forward[i];
             }
-            x.forward[i] = x.forward[i];
+            if (x.forward[i] != null) {
+                // We've found the SkipNode we want to remove. Break out of the search.
+                System.out.println("Found");
+                remove = x.forward[i];
+                break;
+            }
         }
-        return null;
+        
+        if (remove == null) {
+            System.out.println("Not found");
+            // The loop has run all the way through and we've found nothing.
+            return null;
+        }
+        
+        x = head;
+        for (int i = remove.forward.length - 1; i >= 0; i--) {
+            System.out.println("Removing");
+            // Move forward in the current depth until we've found the SkipNode
+            while (x.forward[i] != remove) {
+                x = x.forward[i];
+            }
+            // Decouple the SkipNode at this level
+            x.forward[i] = remove.forward[i];
+        }
+        
+        return (E) ((KVPair<K, E>) remove.element()).value();
     }
     
     public E remove(E value) {
