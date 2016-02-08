@@ -1,7 +1,10 @@
 
 public class Rectangle {
 
-    public int x, y, width, height;
+    public int x;
+    public int y;
+    public int width;
+    public int height;
     public String name;
     
     public Rectangle(String newName, int xPos, int yPos, int w, int h) {
