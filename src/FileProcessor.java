@@ -115,7 +115,6 @@ public class FileProcessor {
             int h = Integer.parseInt(args[4]);
             
             Rectangle temp = new Rectangle("", x, y, w, h);
-            
         }
     }
 
