@@ -16,7 +16,8 @@ public class Rectangle {
     }
     
     public String toString() {
-        return "(" + name + ", " + x + ", " + y + ", " + width + ", " + height + ")";
+        return "(" + name + ", " + x + ", " + y + 
+                ", " + width + ", " + height + ")";
     }
 
 }
