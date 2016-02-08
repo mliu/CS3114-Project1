@@ -123,7 +123,7 @@ public class FileProcessor {
         ArrayList<Rectangle[]> rectList = list.intersections();
         
         for(int i = 0; i < rectList.size(); i++) {
-            System.out.println(rectList.get(i)[0].toString());
+            System.out.println(rectList.get(i)[0].toString() + "|" + rectList.get(i)[1].toString());
         }
     }
 
