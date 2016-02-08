@@ -47,6 +47,14 @@ public class FileProcessor {
         int w = Integer.parseInt(args[4]);
         int h = Integer.parseInt(args[5]);
         
+        // Check for rejections
+        if (w <= 0 || h <= 0 || (x + w > 1024) || (x + w < 0) ||
+                (y + h > 1024) || (y + h < 0)) {
+            System.out.print("Rectangle rejected: (");
+            this.printOut(args);
+            return;
+        }
+        
         Rectangle rect = new Rectangle(name, x, y, w, h);
         KVPair<String, Rectangle> pair = new KVPair(name, rect);
         if (list.insert(pair)) {
@@ -62,13 +70,21 @@ public class FileProcessor {
      * @param args - a string array of x, y
      */
     private void parseRegionsearch(String[] args) {
-        System.out.print("Regionsearch results: (");
-        this.printOut(args);
-        
         int x = Integer.parseInt(args[1]);
         int y = Integer.parseInt(args[2]);
         int w = Integer.parseInt(args[3]);
         int h = Integer.parseInt(args[4]);
+        
+        ArrayList<Rectangle> rectList = list.regionSearch(x, y, w, h);
+        
+        if (rectList.size() == 0) {
+            return;
+        }
+
+        System.out.println("Regionsearch results for: " + x + ", " + y + ", " + w + ", " + h);
+        for (int i = 0; i < rectList.size(); i++) {
+            System.out.println(rectList.get(i).toString());
+        }
     }
 
     
@@ -78,11 +94,11 @@ public class FileProcessor {
      * or the x y w h of a rectangle
      */
     private void parseRemove(String[] args) {
-        if (args.length == 2) {
-            System.out.print("Rectangle removed: (");
-            this.printOut(args);
-            
+        if (args.length == 2) {         
             String name = args[1];
+            
+            ArrayList<Rectangle> rectList = list.remove(name);
+            System.out.print("Rectangle ");
         }
         else {
             System.out.print("Rectangle removed: (");

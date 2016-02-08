@@ -12,7 +12,7 @@ public class SkipList<K extends Comparable<K>, E> {
     private SkipNode head;
     
     public SkipList() {
-        level = 1;
+        level = 0;
         head = new SkipNode(null, level);
         size = 0;
     }
@@ -79,7 +79,7 @@ public class SkipList<K extends Comparable<K>, E> {
         for (int i = 0; i < size; i++) {
             Rectangle outerRect = (Rectangle) 
                     ((KVPair) outerIterator.element()).value();
-            for (int j = 0; j < size; j++) {
+            for (int j = i; j < size; j++) {
                 Rectangle innerRect = (Rectangle) 
                         ((KVPair) innerIterator.element()).value();
                 
@@ -87,15 +87,59 @@ public class SkipList<K extends Comparable<K>, E> {
                     Rectangle[] temp = new Rectangle[2];
                     temp[0] = outerRect;
                     temp[1] = innerRect;
+                    intersectionList.add((E[]) temp);
                 }
                 
                 innerIterator = innerIterator.forward[0];
             }
             outerIterator = outerIterator.forward[0];
-            innerIterator = head.forward[0];
+            innerIterator = outerIterator;
         }
         
         return intersectionList;
+    }
+    
+    public ArrayList<E> regionSearch(int x, int y, int w, int h) {
+        ArrayList<E> foundList = new ArrayList();
+        
+        //search for the given region
+        SkipNode tempNode = head;
+        for (int i = 0; i < size; i++) {
+            //upate the node
+            tempNode = tempNode.forward[0];
+            
+            //grab the current rectangle
+            Rectangle rect = (Rectangle) ((KVPair) tempNode.element()).value();
+            
+            //check to see if no intersection
+            if ( (rect.x + rect.width) < x || (x + w) < rect.x || (rect.y + rect.height) < y || (y + h) < rect.y ) {
+                //do nothing
+            } else {
+                //there was an intersection, so add to array
+                foundList.add((E)((KVPair<K,E>) tempNode.element()).value());
+            }
+        }
+        
+        return foundList;
+    }
+    
+    public E remove(Comparable<K> key) {        
+        SkipNode x = head;
+        SkipNode[] update = new SkipNode[level + 1];
+        for (int i = level; i >= 0; i--) {
+            while ((x.forward[i] != null) && 
+                    key.compareTo(((KVPair<K, E>) 
+                            x.forward[i].element()).key()) != 0) {
+                x = x.forward[i];
+            }
+            x.forward[i] = x.forward[i];
+        }
+        return null;
+    }
+    
+    public E remove(E value) {
+        
+        return null;
     }
     
     public ArrayList<E> search(Comparable<K> key) {
