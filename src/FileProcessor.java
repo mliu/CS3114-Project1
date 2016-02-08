@@ -97,7 +97,7 @@ public class FileProcessor {
         if (args.length == 2) {         
             String name = args[1];
             
-            ArrayList<Rectangle> rectList = list.remove(name);
+            Rectangle rect = list.remove(name);
             System.out.print("Rectangle ");
         }
         else {
