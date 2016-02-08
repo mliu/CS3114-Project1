@@ -23,5 +23,9 @@ public class Rectangle {
     public boolean equals(Rectangle rect) {
         return (x == rect.x && y == rect.y && width == rect.width && height == rect.height);
     }
+    
+    public boolean intersects(Rectangle rect) {
+        return (rect.x + rect.width) < x || (x + w) < rect.x || (rect.y + rect.height) < y || (y + h) < rect.y )
+    }
 
 }
