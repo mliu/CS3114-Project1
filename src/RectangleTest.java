@@ -37,5 +37,14 @@ public class RectangleTest extends TestCase {
     public void assertToString() {
         assertEquals("test, 1, 1, 5, 5", rect.toString());
     }
+    
+    /**
+     * Tests the intersects method
+     */
+    public void testIntersects() {
+        Rectangle rect2 = new Rectangle("t", 0, 0, 5, 5);
+        
+        assertTrue(rect.intersects(rect2));
+    }
 
 }
