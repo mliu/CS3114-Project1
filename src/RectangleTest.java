@@ -27,7 +27,7 @@ public class RectangleTest extends TestCase {
     
     // toString
     public void assertToString() {
-        assertEquals("test, 1, 1, 5, 5", rect.toString())
+        assertEquals("test, 1, 1, 5, 5", rect.toString());
     }
 
 }
