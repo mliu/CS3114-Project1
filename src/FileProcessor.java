@@ -125,7 +125,7 @@ public class FileProcessor {
             Rectangle rect = list.remove(temp);
             
             if (rect == null) {
-                System.out.println("Rectangle not fount: (" + x + ", " + y +
+                System.out.println("Rectangle not found: (" + x + ", " + y +
                         ", " + w + ", " + h + ")");
                 return;
             }
