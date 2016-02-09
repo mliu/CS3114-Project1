@@ -84,7 +84,7 @@ public class FileProcessor {
 
         System.out.println("Rectangles intersecting region (" + x + ", " + y + ", " + w + ", " + h + "):");
         for (int i = 0; i < rectList.size(); i++) {
-            System.out.println(rectList.get(i).toString());
+            System.out.println("(" + rectList.get(i).toString() + ")");
         }
     }
 
@@ -116,7 +116,7 @@ public class FileProcessor {
             // Check for rejections
             if (w <= 0 || h <= 0 || (x + w > 1024) || (x + w < 0) ||
                     (y + h > 1024) || (y + h < 0)) {
-                System.out.print("Rectangle rejected: (");
+                System.out.print("Rectangle rejected: ");
                 this.printOut(args);
                 return;
             }
@@ -130,7 +130,7 @@ public class FileProcessor {
                 return;
             }
             
-            System.out.println("Rectangle removed: " + rect.toString());
+            System.out.println("Rectangle removed: (" + rect.toString() + ")");
         }
     }
 
@@ -147,9 +147,9 @@ public class FileProcessor {
             return;
         }
 
-        System.out.println("Rectangles found:");
+        System.out.println("Rectangles found: ");
         for (int i = 0; i < rectList.size(); i++) {
-            System.out.println(rectList.get(i).toString());
+            System.out.println("(" + rectList.get(i).toString() + ")");
         }
     }
 
@@ -162,7 +162,8 @@ public class FileProcessor {
         ArrayList<Rectangle[]> rectList = list.intersections();
         
         for(int i = 0; i < rectList.size(); i++) {
-            System.out.println(rectList.get(i)[0].toString() + "|" + rectList.get(i)[1].toString());
+            System.out.println("(" + rectList.get(i)[0].toString() + 
+                    "|" + rectList.get(i)[1].toString() + ")");
         }
     }
 
