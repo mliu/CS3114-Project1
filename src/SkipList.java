@@ -171,17 +171,15 @@ public class SkipList<K extends Comparable<K>, E> {
         SkipNode<KVPair<K, E>> x = head;
         SkipNode<KVPair<K,E>> remove = null;
         
-        while ((x.forward[i] != null) && 
-                key.compareTo(((KVPair<K, E>) 
-                        x.forward[i].element()).key()) > 0) {
+        while (x.forward[0] != null && !value.equals(
+                ((KVPair<K,E>) x.forward[0].element()).value())) {
             // Search until we find the first instance of a SkipNode with key
-            x = x.forward[i];
+            x = x.forward[0];
         }
-        if ((x.forward[i] != null) && key.compareTo(((KVPair<K, E>) 
-                x.forward[i].element()).key()) == 0) {
+        if ((x.forward[0] != null) && value.equals(
+                ((KVPair<K,E>) x.forward[0].element()).value())) {
             // We've found the SkipNode we want to remove. Break out of the search.
-            remove = x.forward[i];
-            break;
+            remove = x.forward[0];
         }
         
         if (remove == null) {
@@ -199,9 +197,8 @@ public class SkipList<K extends Comparable<K>, E> {
             x.forward[i] = remove.forward[i];
         }
         
-        if (remove == null) {
-            return null;
-        }
+        size--;
+        return (E) ((KVPair<K, E>) remove.element()).value();
     }
     
     public ArrayList<E> search(Comparable<K> key) {

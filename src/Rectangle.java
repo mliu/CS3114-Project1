@@ -33,7 +33,8 @@ public class Rectangle {
      * @return true if the two rectangles share the same x, y, w, and h. Otherwise false.
      */
     public boolean equals(Rectangle rect) {
-        
+        return (x == rect.x && y == rect.y && 
+                width == rect.width && height == rect.height);
     }
     
     /**
@@ -74,15 +75,6 @@ public class Rectangle {
      */
     public int getH() {
         return height;
-    }
-    
-    /**
-     * Checks rectangle equality
-     * @param rect Rectangle to check equality
-     * @return true if this Rectangle is equal to rect, otherwise false
-     */
-    public boolean equals(Rectangle rect) {
-        return (x == rect.x && y == rect.y && width == rect.width && height == rect.height);
     }
     
     /**

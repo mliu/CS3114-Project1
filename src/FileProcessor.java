@@ -122,6 +122,7 @@ public class FileProcessor {
             }
             
             Rectangle temp = new Rectangle("", x, y, w, h);
+            Rectangle rect = list.remove(temp);
         }
     }
 
