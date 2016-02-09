@@ -71,7 +71,6 @@ public class SkipListTest extends TestCase {
     
     //Intersections
     public void testIntersections() {
-
         this.addValidStuff();
         ArrayList<Rectangle> rectList = list.intersections();
         
