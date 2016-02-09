@@ -32,10 +32,13 @@ public class Rectangle {
      * @param rect The Rectangle to check equality for
      * @return true if the two rectangles share the same x, y, w, and h. Otherwise false.
      */
-    public boolean equals(Rectangle rect) {
+    public boolean equals(Object rect) {
         System.out.println("equals");
-        return (x == rect.x && y == rect.y && 
-                width == rect.width && height == rect.height);
+        if (rect instanceof Rectangle) {
+            return (x == rect.x && y == rect.y && 
+                    width == rect.width && height == rect.height);
+        }
+        return false;
     }
     
     /**
