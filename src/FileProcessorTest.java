@@ -35,5 +35,11 @@ public class FileProcessorTest extends TestCase {
         
         processor.parseString("insert test 1 1 1 0");
         assertTrue(systemOut().getHistory().contains("Rectangle rejected"));
+        
+        processor.parseString("insert test 1 1 1025 1");
+        assertTrue(systemOut().getHistory().contains("Rectangle rejected"));
+        
+        processor.parseString("insert test 1 1 1 1025");
+        assertTrue(systemOut().getHistory().contains("Rectangle rejected"));
     }
 }
