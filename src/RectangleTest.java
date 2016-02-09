@@ -16,7 +16,7 @@ public class RectangleTest extends TestCase {
         rect = new Rectangle("test", 1, 1, 5, 5);
     }
     
-    /*
+    /**
      * Tests the equals method of the rectangle
      */
     public void testEquals() {
