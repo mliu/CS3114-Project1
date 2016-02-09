@@ -117,8 +117,8 @@ public class FileProcessor {
             int h = Integer.parseInt(args[4]);
             
             // Check for rejections
-            if (w <= 0 || h <= 0 || (x + w > 1024) || (x + w < 0) ||
-                    (y + h > 1024) || (y + h < 0)) {
+            if (w <= 0 || h <= 0 || (x + w > 1024) || (x + w <= 0) ||
+                    (y + h > 1024) || (y + h <= 0)) {
                 System.out.print("Rectangle rejected: ");
                 this.printOut(args);
                 return;
