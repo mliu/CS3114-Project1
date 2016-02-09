@@ -8,7 +8,10 @@
 public class Rectangle {
 
     /**
-     * The fields that describe the name and positional data of this rectangle
+     * x - The x coordinate of the top left area of this rectangle
+     * y - The y coordinate of the top left area of this rectangle
+     * width - The width of the area of this rectangle
+     * height - The height of the area of this rectangle
      */
     public int x;
     public int y;
