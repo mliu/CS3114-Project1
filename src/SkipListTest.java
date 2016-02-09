@@ -97,11 +97,10 @@ public class SkipListTest extends TestCase {
         String sameName = "sameName";
         rectList = list.search(sameName);
         
-        //assertNull(rectList);
         assertEquals(2, rectList.size());
     }
     
-    /*
+    /**
      * Tests the skiplist regionsearch method
      */
     public void testRegionSearch() {
@@ -159,7 +158,8 @@ public class SkipListTest extends TestCase {
 //              + "Node has depth 1, Value (\"rect3\", 1, 1, 2, 2)"
 //              + "Node has depth 3, Value (\"rect4\", 300, 300, 10, 10)"
 //              + "Node has depth 4, Value (\"rect5\", 0, 0, 1024, 100)"
-//              + "Node has depth 2, Value (\"rect6\", 50, 50, 5, 5)", systemOut().getHistory());
+//              + "Node has depth 2, Value (\"rect6\", 50, 50, 5, 5)","
+//                + "systemOut().getHistory());
         
         assertEquals(6, list.getSize());
     }
