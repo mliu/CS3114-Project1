@@ -77,4 +77,12 @@ public class Rectangle {
         return (Math.abs(x - rect.x) * 2 < (width + rect.width)) &&
                 (Math.abs(y - rect.y) * 2 < (height + rect.height));
     }
+
+    /**
+     * Returns a string representation of the rectangle for the insert method
+     * @return String representation of this rectangle
+     */
+    public String toStringInsert() {
+        return name + ", " + x + ", " + y + ", " + width + ", " + height; 
+    }
 }

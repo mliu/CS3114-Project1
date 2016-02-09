@@ -119,32 +119,43 @@ public class SkipList<K extends Comparable<K>, E> {
      * rectangles.
      * @return An Arraylist of arrays all length 2 that both hold rectangles.
      */
-    public ArrayList<E[]> intersections() {
-        SkipNode<E> outerIterator = head.forward[0];
-        SkipNode<E> innerIterator = head.forward[0];
-        ArrayList<E[]> intersectionList = new ArrayList<E[]>();
-        
-        for (int i = 0; i < size; i++) {
-            Rectangle outerRect = (Rectangle) 
-                    ((KVPair<K, E>) outerIterator.element()).value();
-            for (int j = i; j < size; j++) {
-                Rectangle innerRect = (Rectangle) 
-                        ((KVPair<K, E>) innerIterator.element()).value();
-                
-                if (i != j && outerRect.intersects(innerRect)) {
-                    Rectangle[] temp = new Rectangle[2];
-                    temp[0] = outerRect;
-                    temp[1] = innerRect;
-                    intersectionList.add((E[]) temp);
+    public ArrayList<String> intersections() {
+        ArrayList<String> foundList = new ArrayList();
+
+        //set nodes initially
+        SkipNode<KVPair<K, E>> iteratorNode = head;
+        iteratorNode = iteratorNode.forward[0];
+        SkipNode<KVPair<K, E>> checkNode = head;
+        checkNode = checkNode.forward[0];
+
+        for (int i = 0; i < size-1; i++) {
+
+            for (int j = i + 1; j < size-1; j++) {
+
+                iteratorNode = iteratorNode.forward[0];
+
+                //compare the iteratorNode with the checkNode
+                Rectangle iteratorRect = (Rectangle) iteratorNode.element().value();
+                Rectangle checkRect = (Rectangle) checkNode.element().value();
+
+                //check to see if no intersection
+                if ( (iteratorRect.x + iteratorRect.width) < checkRect.x || (checkRect.x + checkRect.width) < iteratorRect.x || 
+                        (iteratorRect.y + iteratorRect.height) < checkRect.y || (checkRect.y + checkRect.height) < iteratorRect.y ) {
+                    //do nothing
+                } else {
+                    //there was an intersection, so add to array
+                    String combinedIntersection = "(" + iteratorRect.toStringInsert() + " | " + checkRect.toStringInsert() + ")" ;
+                    foundList.add(combinedIntersection);
                 }
-                
-                innerIterator = innerIterator.forward[0];
             }
-            outerIterator = outerIterator.forward[0];
-            innerIterator = outerIterator;
+            //update the nodes for the next time
+            checkNode = checkNode.forward[0];
+            if (checkNode.forward[0] != null) {
+                iteratorNode = checkNode.forward[0];
+            }
         }
-        
-        return intersectionList;
+
+        return foundList;
     }
     
     /**
