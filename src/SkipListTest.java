@@ -13,19 +13,25 @@ public class SkipListTest extends TestCase {
     
     private SkipList list;
     
+    /**
+     * Sets up the test case
+     */
     public void setUp() {
         list = new SkipList();
     }
     
+    /**
+     * Helper method used to add rectangles to an empty SkipList
+     */
     private void addValidStuff() {
-        Rectangle rect1 = new Rectangle ("rect1", 2, 2, 4, 4);
-        Rectangle rect2 = new Rectangle ("rect2", 2, 2, 4, 4);
-        Rectangle rect3 = new Rectangle ("rect3", 1, 1, 2, 2);
+        Rectangle rect1 = new Rectangle("rect1", 2, 2, 4, 4);
+        Rectangle rect2 = new Rectangle("rect2", 2, 2, 4, 4);
+        Rectangle rect3 = new Rectangle("rect3", 1, 1, 2, 2);
         
-        Rectangle rect4 = new Rectangle ("sameName", 300, 300, 10, 10);
+        Rectangle rect4 = new Rectangle("sameName", 300, 300, 10, 10);
         
-        Rectangle rect5 = new Rectangle ("rect5", 0, 0, 1024, 100);
-        Rectangle rect6 = new Rectangle ("sameName", 50, 50, 5, 5);
+        Rectangle rect5 = new Rectangle("rect5", 0, 0, 1024, 100);
+        Rectangle rect6 = new Rectangle("sameName", 50, 50, 5, 5);
         
         KVPair kv1 = new KVPair("rect1", rect1);
         KVPair kv2 = new KVPair("rect2", rect2);
@@ -43,14 +49,16 @@ public class SkipListTest extends TestCase {
         list.insert(kv6);
     }
     
-    //Insert
+    /**
+     * Tests the insert method of the skiplist
+     */
     public void testInsert() {
-        Rectangle rect1 = new Rectangle ("rect1", 2, 2, 4, 4);
-        Rectangle rect2 = new Rectangle ("rect2", -1, -1, 4, 4);
-        Rectangle rect3 = new Rectangle ("rect3", 2, -1, 4, 4);
-        Rectangle rect4 = new Rectangle ("rect4", 0, 0, 1025, 100);
-        Rectangle rect5 = new Rectangle ("rect5", 1, 1, -3, 4);
-        Rectangle rect6 = new Rectangle ("rect6", 2, 1, -5, -5);
+        Rectangle rect1 = new Rectangle("rect1", 2, 2, 4, 4);
+        Rectangle rect2 = new Rectangle("rect2", -1, -1, 4, 4);
+        Rectangle rect3 = new Rectangle("rect3", 2, -1, 4, 4);
+        Rectangle rect4 = new Rectangle("rect4", 0, 0, 1025, 100);
+        Rectangle rect5 = new Rectangle("rect5", 1, 1, -3, 4);
+        Rectangle rect6 = new Rectangle("rect6", 2, 1, -5, -5);
         
         KVPair kv1 = new KVPair("rect1", rect1);
         KVPair kv2 = new KVPair("rect2", rect2);
@@ -69,7 +77,9 @@ public class SkipListTest extends TestCase {
         assertEquals(6, list.getSize());
     }
     
-    //Intersections
+    /**
+     * Tests the intersections method of the skiplist
+     */
     public void testIntersections() {
         this.addValidStuff();
         ArrayList<Rectangle> rectList = list.intersections();
@@ -77,7 +87,9 @@ public class SkipListTest extends TestCase {
         assertEquals(2, rectList.size());
     }
     
-    //Name Search
+    /**
+     * Tests the skiplist search by name functionality
+     */
     public void testSearch() {
         this.addValidStuff();
         
@@ -89,38 +101,51 @@ public class SkipListTest extends TestCase {
         assertEquals(2, rectList.size());
     }
     
-    //Region Search
+    /*
+     * Tests the skiplist regionsearch method
+     */
     public void testRegionSearch() {
         
         this.addValidStuff();
         ArrayList<Rectangle> rectList = list.regionSearch(3, 3, 3, 3);
         
         assertEquals(4, rectList.size());
-    }
-    
-    public void testRegionSearch2() {
         
-        this.addValidStuff();
-        ArrayList<Rectangle> rectList = list.regionSearch(65, 65, 5, 10);
+        ArrayList<Rectangle> rectList2 = list.regionSearch(65, 65, 5, 10);
         
-        assertEquals(1, rectList.size());
+        assertEquals(1, rectList2.size());
     }
-   
-    //Remove
+
+    /**
+     * Tests the skiplist remove by name method
+     */
     public void testRemoveName() {
         this.addValidStuff();
         
         list.remove("rect1");
-        assertEquals(5, list.getSize());
-    }
-    
-    public void testRemoveCoordinates() {
-        this.addValidStuff();
-//        list.remove();
+        list.remove("rect1");
         
         assertEquals(5, list.getSize());
     }
     
+    /**
+     * Tests the skiplist remove by coordinates method
+     */
+    public void testRemoveCoordinates() {
+        this.addValidStuff();
+        
+        Rectangle test = new Rectangle("", 2, 2, 4, 4);
+        
+        list.remove(test);
+        list.remove(test);
+        list.remove(test);
+        
+        assertEquals(4, list.getSize());
+    }
+    
+    /**
+     * Tests the dump method of the skiplist
+     */
     public void testDump() {
 //      Random rand = new Random();
 //      int random = rand.nextInt(1);

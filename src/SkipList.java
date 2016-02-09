@@ -5,6 +5,7 @@ import java.util.Random;
 /**
  * @author jordanrw
  * @author mliu95
+ * @version 1
  * An implementation of the SkipList data structure.
  * @param <K> A generic class that extends Comparable. Is used as a key
  * to determine the value of the SkipNodes when sorting and inserting etc.
