@@ -84,7 +84,7 @@ public class SkipListTest extends TestCase {
         this.addValidStuff();
         ArrayList<Rectangle> rectList = list.intersections();
         
-        assertEquals(2, rectList.size());
+        assertEquals(7, rectList.size());
     }
     
     /**
