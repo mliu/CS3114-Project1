@@ -39,9 +39,11 @@ public class KVPair<K extends Comparable<K>, E>
     }
     
     /**
-     * compares a key to the 
-     * @param it - what to compare to key
-     * @return
+     * Compares the key of this KVPair to the provided key
+     * @param it the key to compare to
+     * @return 0 if the keys are equal, an integer less than 0 if
+     * it is greater than this key, or an integer greater than 0 if
+     * it is less than this key.
      */
     public int compareTo(K it) {
         return key.compareTo(it);
