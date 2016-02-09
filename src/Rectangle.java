@@ -55,38 +55,6 @@ public class Rectangle {
     public String toString() {
         return name + ", " + x + ", " + y + ", " + width + ", " + height;
     }
-
-    /**
-     * getter for x of rectangle
-     * @return x 
-     */
-    public int getX() {
-        return x;
-    }
-    
-    /**
-     * getter for the y of rectangle
-     * @return y
-     */
-    public int getY() {
-        return y;
-    }
-    
-    /**
-     * getter for width of rectangle
-     * @return width 
-     */
-    public int getW() {
-        return width;
-    }
-    
-    /**
-     * getter for height of rectangle
-     * @return height
-     */
-    public int getH() {
-        return height;
-    }
     
     /**
      * Checks rectangle intersection
