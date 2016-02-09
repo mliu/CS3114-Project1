@@ -122,7 +122,6 @@ public class FileProcessor {
             }
             
             Rectangle temp = new Rectangle("", x, y, w, h);
-            System.out.println("Removing: " + temp.toString());
             Rectangle rect = list.remove(temp);
             
             if (rect == null) {
