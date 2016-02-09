@@ -29,7 +29,7 @@ public class RectangleTest extends TestCase {
         assertFalse(rect.equals(rect3));
     }
     
-    /*
+    /**
      * Tests the toString method of the rectangle
      */
     public void assertToString() {
