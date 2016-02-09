@@ -77,7 +77,8 @@ public class FileProcessor {
         int h = Integer.parseInt(args[4]);
         
         if (w <= 0 || h <= 0) {
-            System.out.println("Rectangle rejected: (" + x + ", " + y + ", " + w + ", " + h + ")");
+            System.out.println("Rectangle rejected: (" + x + 
+                    ", " + y + ", " + w + ", " + h + ")");
             return;
         }
         
