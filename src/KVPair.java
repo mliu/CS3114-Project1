@@ -1,6 +1,7 @@
 /**
  * @author jordanrw
  * @author mliu95
+ * @version 1
  * The KVPair class that is the element of the skipnodes in 
  * the skiplist
  * @param <K> A generic class that extends Comparable. Used as the key.
