@@ -7,6 +7,9 @@
  */
 public class Rectangle {
 
+    /**
+     * The fields that describe the name and positional data of this rectangle
+     */
     public int x;
     public int y;
     public int width;
