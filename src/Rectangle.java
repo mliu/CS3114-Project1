@@ -36,7 +36,8 @@ public class Rectangle {
     /**
      * Equality checker
      * @param rect The Rectangle to check equality for
-     * @return true if the two rectangles share the same x, y, w, and h. Otherwise false.
+     * @return true if the two rectangles share the same x, y, w, and h. 
+     * Otherwise false.
      */
     public boolean equals(Object rect) {
         if (rect instanceof Rectangle) {
