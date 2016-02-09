@@ -1,12 +1,10 @@
 /**
- * The KVPair for the program
- * 
  * @author jordanrw
  * @author mliu95
- * @version 1
- * 
- * @param K generic class for a key that extends Comparable
- * @param E generic class for a value
+ * The KVPair class that is the element of the skipnodes in 
+ * the skiplist
+ * @param <K> A generic class that extends Comparable. Used as the key.
+ * @param <E> A generic class that is used as the value.
  */
 public class KVPair<K extends Comparable<K>, E> 
     implements Comparable<KVPair<K, E>> {
