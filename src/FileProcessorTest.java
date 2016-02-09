@@ -10,7 +10,9 @@ public class FileProcessorTest extends TestCase {
     
     private FileProcessor processor;
     
-    // Set up the test case
+    /*
+     *  Set up the test case
+     */
     public void setUp() {
         processor = new FileProcessor();
     }
