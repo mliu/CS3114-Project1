@@ -4,6 +4,9 @@
  * @author jordanrw
  * @author mliu95
  * @version 1
+ * 
+ * @param K generic class for a key that extends Comparable
+ * @param E generic class for a value
  */
 public class KVPair<K extends Comparable<K>, E> 
     implements Comparable<KVPair<K, E>> {
