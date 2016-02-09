@@ -42,7 +42,7 @@ public class Rectangle {
      * @return string of rectangles values
      */
     public String toString() {
-        return "(" + name + ", " + x + ", " + y + ", " + width + ", " + height + ")";
+        return name + ", " + x + ", " + y + ", " + width + ", " + height;
     }
 
     /**
