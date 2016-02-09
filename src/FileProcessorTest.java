@@ -26,6 +26,9 @@ public class FileProcessorTest extends TestCase {
         assertFuzzyEquals("", systemOut().getHistory());
     }
     
+    /**
+     * Test the insert command
+     */
     public void testInsert() {
         processor.parseString("insert test 1 1 1 1");
         assertFuzzyEquals("Rectangle inserted: (test, 1, 1, 1, 1)", systemOut().getHistory());
@@ -41,5 +44,13 @@ public class FileProcessorTest extends TestCase {
         
         processor.parseString("insert test 1 1 1 1025");
         assertTrue(systemOut().getHistory().contains("Rectangle rejected"));
+    }
+    
+    /**
+     * Test the search command
+     */
+    public void testSearch() {
+        processor.parseString("search test");
+        assertTrue(systemOut().getHistory().contains("Rectangle not found"));
     }
 }
