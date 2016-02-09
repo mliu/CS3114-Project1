@@ -123,6 +123,14 @@ public class FileProcessor {
             
             Rectangle temp = new Rectangle("", x, y, w, h);
             Rectangle rect = list.remove(temp);
+            
+            if (rect == null) {
+                System.out.println("Rectangle not fount: (" + x + ", " + y +
+                        ", " + w + ", " + h + ")");
+                return;
+            }
+            
+            System.out.println("Rectangle removed: " + rect.toString());
         }
     }
 
