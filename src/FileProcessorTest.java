@@ -55,5 +55,6 @@ public class FileProcessorTest extends TestCase {
         
         processor.parseString("insert test 1 1 1 1");
         processor.parseString("search test");
+        assertTrue(systemOut().getHistory().contains("Rectangles found"));
     }
 }
