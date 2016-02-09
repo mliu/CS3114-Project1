@@ -31,6 +31,8 @@ public class RectangleTest extends TestCase {
         assertTrue(rect.equals(rect2));
         assertFalse(rect.equals(rect3));
         assertFalse(rect.equals(rect4));
+        assertFalse(rect.equals(rect5));
+        assertFalse(rect.equals(rect6));
     }
     
     /**
