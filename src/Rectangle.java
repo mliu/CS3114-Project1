@@ -7,7 +7,10 @@
  */
 public class Rectangle {
 
-    public int x, y, width, height;
+    public int x;
+    public int y;
+    public int width;
+    public int height;
     public String name;
     
     /**

@@ -19,12 +19,9 @@ dump
 search r1
 search r_r
 
-remove r4
-remove r4
-remove inExistRec_0
-
 dump
 
+remove 10 10 5 5
 remove 10 10 5 5
 	
 regionsearch   -5 -5 20 20 
