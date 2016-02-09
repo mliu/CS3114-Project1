@@ -47,8 +47,8 @@ public class RectangleTest extends TestCase {
      */
     public void testIntersects() {
         Rectangle rect2 = new Rectangle("t", 1, 0, 5, 5);
-        Rectangle rect3 = new Rectangle("t2", 0, 0, 1, 5);
-        Rectangle rect4 = new Rectangle("t3", 100, 100, 1, 1);
+        Rectangle rect3 = new Rectangle("t2", 0, 100, 5, 5);
+        Rectangle rect4 = new Rectangle("t3", 100, 100, 5, 1);
         
         assertTrue(rect.intersects(rect2));
         assertTrue(rect.intersects(rect3));
