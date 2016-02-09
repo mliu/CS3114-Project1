@@ -46,7 +46,7 @@ public class RectangleTest extends TestCase {
      * Tests the intersects method
      */
     public void testIntersects() {
-        Rectangle rect2 = new Rectangle("t", 0, 0, 5, 5);
+        Rectangle rect2 = new Rectangle("t", 1, 0, 5, 5);
         
         assertTrue(rect.intersects(rect2));
     }
