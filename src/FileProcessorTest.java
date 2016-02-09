@@ -70,4 +70,11 @@ public class FileProcessorTest extends TestCase {
         processor.parseString("search test");
         assertTrue(systemOut().getHistory().contains("Rectangles found"));
     }
+    
+    /**
+     * Test the remove command
+     */
+    public void testRemove() {
+        
+    }
 }
