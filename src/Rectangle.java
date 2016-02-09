@@ -28,6 +28,15 @@ public class Rectangle {
     }
     
     /**
+     * Equality checker
+     * @param rect The Rectangle to check equality for
+     * @return true if the two rectangles share the same x, y, w, and h. Otherwise false.
+     */
+    public boolean equals(Rectangle rect) {
+        
+    }
+    
+    /**
      * toString for Rectangle
      * @return string of rectangles values
      */
