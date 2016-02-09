@@ -10,30 +10,20 @@ public class KVPairTest extends TestCase {
     private KVPair pair;
     
     /**
-     * Helper method for the tests. Creates generic rectangle
+     * Helper method for the tests. Creates generic KVPair
      */
     public void setUp() {
         pair = new KVPair("hello", 5);
     }
     
     /**
-     * Tests the equals method of the rectangle
+     * Tests the compare to method of the KVPair
      */
-    public void testEquals() {
-        Object blah = new Object();
-        Rectangle rect2 = new Rectangle("test2", 1, 1, 5, 5);
-        Rectangle rect3 = new Rectangle("test3", 1, 1, 5, 6);
+    public void testCompareTo() {
+        pair2 = new KVPair("hello", 3);
+        pair3 = new KVPair("hea", 5);
         
-        assertFalse(rect.equals(blah));
-        assertTrue(rect.equals(rect2));
-        assertFalse(rect.equals(rect3));
+        assertTrue(pair.compareTo(pair2));
+        assertFalse(pair.compareTo(pair3));
     }
-    
-    /**
-     * Tests the toString method of the rectangle
-     */
-    public void assertToString() {
-        assertEquals("test, 1, 1, 5, 5", rect.toString());
-    }
-
 }
