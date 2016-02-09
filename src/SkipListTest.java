@@ -161,7 +161,7 @@ public class SkipListTest extends TestCase {
 //              + "Node has depth 4, Value (\"rect5\", 0, 0, 1024, 100)"
 //              + "Node has depth 2, Value (\"rect6\", 50, 50, 5, 5)", systemOut().getHistory());
         
-        assertEquals("6", list.getSize());
+        assertEquals(6, list.getSize());
     }
     
 }
