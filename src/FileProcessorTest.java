@@ -81,5 +81,29 @@ public class FileProcessorTest extends TestCase {
         processor.parseString("insert test 1 1 1 1");
         processor.parseString("remove test");
         assertTrue(systemOut().getHistory().contains("Rectangle removed"));
+        
+        processor.parseString("remove 1 1 0 1");
+        assertTrue(systemOut().getHistory().contains("Rectangle rejected"));
+        
+        processor.parseString("remove 1 1 1 0");
+        assertTrue(systemOut().getHistory().contains("Rectangle rejected"));
+        
+        processor.parseString("remove 1 1 1025 1");
+        assertTrue(systemOut().getHistory().contains("Rectangle rejected"));
+        
+        processor.parseString("remove -5 1 1 1");
+        assertTrue(systemOut().getHistory().contains("Rectangle rejected"));
+        
+        processor.parseString("remove 1 1 1 1025");
+        assertTrue(systemOut().getHistory().contains("Rectangle rejected"));
+        
+        processor.parseString("remove 1 -5 1 1");
+        assertTrue(systemOut().getHistory().contains("Rectangle rejected"));
+        
+        processor.parseString("remove -1 1 5 1");
+        assertTrue(systemOut().getHistory().contains("Rectangle rejected"));
+        
+        processor.parseString("remove  1 -1 1 5");
+        assertTrue(systemOut().getHistory().contains("Rectangle rejected"));
     }
 }
