@@ -24,7 +24,7 @@ public class FileProcessor {
      * @param args - the array of values to consoled
      */
     private void printOut(String[] args) {
-
+        System.out.print("(");
         for (int i = 1; i < args.length; i++) {
             System.out.print(args[i]);
             if (i != args.length - 1) {
