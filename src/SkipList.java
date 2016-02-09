@@ -2,8 +2,20 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * @author jordanrw
+ * @author mliu95
+ * An implementation of the SkipList data structure.
+ * @param <K> A generic class that extends Comparable. Is used as a key
+ * to determine the value of the SkipNodes when sorting and inserting etc.
+ * @param <E> A generic class that extends Comparable. Is used as a value
+ * for the Key-Value pairs of the SkipNodes.
+ */
 public class SkipList<K extends Comparable<K>, E> {
 
+    /**
+     * Private variables used to keep track of the state of the skiplist
+     */
     private Random rnd = new Random();
     
     private int level;
@@ -11,14 +23,23 @@ public class SkipList<K extends Comparable<K>, E> {
     
     private SkipNode<KVPair<K, E>> head;
     
+    /**
+     * Constructor for the SkipList. Creates empty head skipnode.
+     */
     public SkipList() {
         level = 0;
         head = new SkipNode<KVPair<K, E>>(null, level);
         size = 0;
     }
     
+    /**
+     * Updates the size of the head skipnode array to reflect any changes in 
+     * depth.
+     * @param newLevel The new depth that the head skipnode should be set to
+     */
     private void adjustHead(int newLevel) {
-        SkipNode<KVPair<K, E>> newHead = new SkipNode<KVPair<K, E>>(null, newLevel);
+        SkipNode<KVPair<K, E>> newHead = new 
+                SkipNode<KVPair<K, E>>(null, newLevel);
         for (int x = 0; x <= level; x++) {
             newHead.forward[x] = head.forward[x];
         }
@@ -26,6 +47,11 @@ public class SkipList<K extends Comparable<K>, E> {
         level = newLevel;
     }
 
+    /**
+     * Binomial distribution helper method for randomly choosing the next 
+     * skipnode depth
+     * @return A random integer
+     */
     private int randomLevel() {
         int lev = 0;
         while (rnd.nextInt(2) == 0) {
@@ -34,6 +60,9 @@ public class SkipList<K extends Comparable<K>, E> {
         return lev;
     }
     
+    /**
+     * Dumps the contents of this skiplist
+     */
     public void dump() {
         System.out.println("Node has depth " + (level + 1) + ", Value (null)");
         SkipNode<KVPair<K, E>> tempNode = head;
@@ -47,11 +76,19 @@ public class SkipList<K extends Comparable<K>, E> {
         System.out.println("SkipList size is: " + size);
     }
     
+    /**
+     * Getter method for the skiplist's size
+     * @return An integer of the number of skipnodes in the skiplist.
+     * Does not include the header skipnode.
+     */
     public int getSize() {
         return size;
     }
 
-    /** Insert a KVPair into the skiplist */
+    /** Insert a KVPair into the skiplist 
+     * @param it The new KVPair to insert into the skiplist
+     * @return True if the value was inserted, false otherwise
+     */
     public boolean insert(KVPair<K, E> it) {
         int newLevel = randomLevel();
         Comparable<K> k = it.key();
@@ -75,6 +112,12 @@ public class SkipList<K extends Comparable<K>, E> {
         return true;
     }
     
+    /**
+     * Calculates any intersections between Rectangles in the skiplist
+     * and returns an arraylist of length 2 arrays which contain intersecting
+     * rectangles.
+     * @return An Arraylist of arrays all length 2 that both hold rectangles.
+     */
     public ArrayList<E[]> intersections() {
         SkipNode<E> outerIterator = head.forward[0];
         SkipNode<E> innerIterator = head.forward[0];
@@ -82,10 +125,10 @@ public class SkipList<K extends Comparable<K>, E> {
         
         for (int i = 0; i < size; i++) {
             Rectangle outerRect = (Rectangle) 
-                    ((KVPair<?, ?>) outerIterator.element()).value();
+                    ((KVPair<K, E>) outerIterator.element()).value();
             for (int j = i; j < size; j++) {
                 Rectangle innerRect = (Rectangle) 
-                        ((KVPair<?, ?>) innerIterator.element()).value();
+                        ((KVPair<K, E>) innerIterator.element()).value();
                 
                 if (i != j && outerRect.intersects(innerRect)) {
                     Rectangle[] temp = new Rectangle[2];
@@ -103,6 +146,15 @@ public class SkipList<K extends Comparable<K>, E> {
         return intersectionList;
     }
     
+    /**
+     * Returns any rectangles in the skiplist that overlap the 
+     * bounds given in the parameters.
+     * @param x The x position of the top left point in the area
+     * @param y The y position of the top left point in the area
+     * @param w The width of the area
+     * @param h The height of the area
+     * @return An arraylist of rectangles that overlap the given area.
+     */
     public ArrayList<E> regionSearch(int x, int y, int w, int h) {
         ArrayList<E> foundList = new ArrayList<E>();
         
@@ -113,10 +165,12 @@ public class SkipList<K extends Comparable<K>, E> {
             tempNode = tempNode.forward[0];
             
             //grab the current rectangle
-            Rectangle rect = (Rectangle) ((KVPair<?, ?>) tempNode.element()).value();
+            Rectangle rect = (Rectangle) ((KVPair<K, E>) 
+                    tempNode.element()).value();
             
             //check to see if no intersection
-            if ( (rect.x + rect.width) < x || (x + w) < rect.x || (rect.y + rect.height) < y || (y + h) < rect.y ) {
+            if ( (rect.x + rect.width) < x || (x + w) < rect.x || 
+                    (rect.y + rect.height) < y || (y + h) < rect.y ) {
                 //do nothing
             } else {
                 //there was an intersection, so add to array
@@ -127,6 +181,13 @@ public class SkipList<K extends Comparable<K>, E> {
         return foundList;
     }
     
+    /**
+     * Searches for the first instance of the key in the skipnode values and 
+     * removes it from the skiplist
+     * @param key The key value of the skipnode to remove
+     * @return The value of the KVPair belonging to the skipnode that was 
+     * removed. Null if no element was removed.
+     */
     public E remove(Comparable<K> key) {
         E removed = null;
         SkipNode<KVPair<K, E>> x = head;
@@ -135,12 +196,14 @@ public class SkipList<K extends Comparable<K>, E> {
             while ((x.forward[i] != null) && 
                     key.compareTo(((KVPair<K, E>) 
                             x.forward[i].element()).key()) > 0) {
-                // Search until we find the first instance of a SkipNode with key
+                // Search until we find the first instance of a 
+                // SkipNode with key
                 x = x.forward[i];
             }
             if ((x.forward[i] != null) && key.compareTo(((KVPair<K, E>) 
                     x.forward[i].element()).key()) == 0) {
-                // We've found the SkipNode we want to remove. Break out of the search.
+                // We've found the SkipNode we want to remove. 
+                // Break out of the search.
                 remove = x.forward[i];
                 break;
             }
@@ -165,6 +228,13 @@ public class SkipList<K extends Comparable<K>, E> {
         return (E) ((KVPair<K, E>) remove.element()).value();
     }
     
+    /**
+     * Searches for the first instance of the value in the skipnode KVPair 
+     * values and removes it from the skiplist
+     * @param value The value of the KVPair of the skipnodes to remove
+     * @return The value of the KVPair belonging to the skipnode that was 
+     * removed. Null if no element was removed.
+     */
     public E remove(E value) {
         E removed = null;
         
@@ -178,7 +248,8 @@ public class SkipList<K extends Comparable<K>, E> {
         }
         if ((x.forward[0] != null) && value.equals(
                 ((KVPair<K, E>) x.forward[0].element()).value())) {
-            // We've found the SkipNode we want to remove. Break out of the search.
+            // We've found the SkipNode we want to remove. 
+            // Break out of the search.
             remove = x.forward[0];
         }
         
@@ -201,12 +272,19 @@ public class SkipList<K extends Comparable<K>, E> {
         return (E) ((KVPair<K, E>) remove.element()).value();
     }
     
+    /** 
+     * Searches for all instances of the key value in the skipnodes and
+     * returns all values of KVPairs of matching skipnodes
+     * @param key The key of skipnodes we want to search for
+     * @return An arraylist full of values of the KVPairs belonging
+     * to the skipnodes
+     */
     public ArrayList<E> search(Comparable<K> key) {
         boolean found = false;
-        SkipNode<KVPair<K, E>> x = head;                     // Dummy header node
-        for (int i = level; i >= 0; i--) {        // For each level...
+        SkipNode<KVPair<K, E>> x = head;
+        for (int i = level; i >= 0; i--) {
             while ((x.forward[i] != null) && (key.compareTo(
-                  ((KVPair<K, E>) x.forward[i].element()).key()) > 0)) { // go forward
+                  ((KVPair<K, E>) x.forward[i].element()).key()) > 0)) {
                 x = x.forward[i];              // Go one last step
             }
         }
