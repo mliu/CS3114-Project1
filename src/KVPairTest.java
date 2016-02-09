@@ -20,10 +20,10 @@ public class KVPairTest extends TestCase {
      * Tests the compare to method of the KVPair
      */
     public void testCompareTo() {
-        pair2 = new KVPair("hello", 3);
-        pair3 = new KVPair("hea", 5);
+        KVPair pair2 = new KVPair("hello", 3);
+        String pair3 = "hello";
         
-        assertTrue(pair.compareTo(pair2));
-        assertFalse(pair.compareTo(pair3));
+        assertEquals(0, pair.compareTo(pair2));
+        assertEquals(0, pair.compareTo(pair3));
     }
 }
