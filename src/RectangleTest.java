@@ -5,7 +5,6 @@ import student.TestCase;
  * @author mliu95
  * @version 1
  */
-
 public class RectangleTest extends TestCase {
     
     private Rectangle rect;
