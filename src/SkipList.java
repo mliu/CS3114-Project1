@@ -124,47 +124,41 @@ public class SkipList<K extends Comparable<K>, E> {
         
         //set nodes initially
         SkipNode<KVPair<K, E>> iteratorNode = head;
-        iteratorNode = iteratorNode.forward[0];
         SkipNode<KVPair<K, E>> checkNode = head;
-        checkNode = checkNode.forward[0];
         
         for (int i = 0; i < size; i++) {
             
-            for (int j = i + 1; j < size; j++) {
+            checkNode = checkNode.forward[0];
+            iteratorNode = head;
+            
+            for (int j = 0; j < size; j++) {
                 
                 iteratorNode = iteratorNode.forward[0];
                 
-                //compare the iteratorNode with the checkNode
-                Rectangle checkRect = (Rectangle) checkNode.element().value();
-                if (iteratorNode != null) {
+                if (i != j) {
+                    //System.out.println("i: " + i + "j " + j);
+                    Rectangle checkRect = (Rectangle) 
+                            checkNode.element().value();
                     Rectangle iteratorRect = (Rectangle) 
                             iteratorNode.element().value();
                     
-                    //check to see if no intersection
-                    if ( (iteratorRect.x + iteratorRect.width) < checkRect.x 
+                    //check to see if there is no intersection
+                    if ( (iteratorRect.x + iteratorRect.width) < checkRect.x
                             || (checkRect.x + checkRect.width) < iteratorRect.x
                             || (iteratorRect.y + iteratorRect.height) < 
-                            checkRect.y || (checkRect.y + checkRect.height) < 
-                            iteratorRect.y ) {
+                            checkRect.y || (checkRect.y + checkRect.height) 
+                            < iteratorRect.y ) {
                         //do nothing
                     } else {
                         //there was an intersection, so add to array
                         String combinedIntersection = "(" + 
                         iteratorRect.toStringInsert() + " | " + 
-                                checkRect.toStringInsert() + ")" ;
+                                checkRect.toStringInsert() + ")";
                         foundList.add(combinedIntersection);
                     }
-                    
-                }
-            }
-
-            //update the nodes for the next time
-            checkNode = checkNode.forward[0];
-            if (checkNode != null) {
-                iteratorNode = checkNode.forward[0];
-            }
-        }
-        
+                } //close of i!=j
+            } //inside loop
+        } //outside loop
         return foundList;
     }
     

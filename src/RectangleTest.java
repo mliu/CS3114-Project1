@@ -23,7 +23,9 @@ public class RectangleTest extends TestCase {
         Object blah = new Object();
         Rectangle rect2 = new Rectangle("test2", 1, 1, 5, 5);
         Rectangle rect3 = new Rectangle("test3", 1, 1, 5, 6);
-        Rectangle rect4 = new Rectangle("test3", 1, 2, 5, 6);
+        Rectangle rect4 = new Rectangle("test4", 1, 1, 6, 5);
+        Rectangle rect5 = new Rectangle("test5", 1, 2, 5, 5);
+        Rectangle rect6 = new Rectangle("test6", 2, 1, 5, 5);
         
         assertFalse(rect.equals(blah));
         assertTrue(rect.equals(rect2));
