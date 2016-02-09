@@ -84,7 +84,8 @@ public class FileProcessor {
         
         ArrayList<Rectangle> rectList = list.regionSearch(x, y, w, h);
 
-        System.out.println("Rectangles intersecting region (" + x + ", " + y + ", " + w + ", " + h + "):");
+        System.out.println("Rectangles intersecting region (" + x + 
+                ", " + y + ", " + w + ", " + h + "):");
         for (int i = 0; i < rectList.size(); i++) {
             System.out.println("(" + rectList.get(i).toString() + ")");
         }
@@ -163,7 +164,7 @@ public class FileProcessor {
         
         ArrayList<Rectangle[]> rectList = list.intersections();
         
-        for(int i = 0; i < rectList.size(); i++) {
+        for (int i = 0; i < rectList.size(); i++) {
             System.out.println("(" + rectList.get(i)[0].toString() + 
                     "|" + rectList.get(i)[1].toString() + ")");
         }
