@@ -18,7 +18,7 @@ public class KVPair<K extends Comparable<K>, E>
     private E value;
     
     /**
-     * Comstructor for KVPair
+     * Constructor for KVPair
      * @param newKey - the key
      * @param newValue - the object or value
      */
@@ -59,16 +59,9 @@ public class KVPair<K extends Comparable<K>, E>
     
     /**
      * getter for the value
-     * @return value
+     * @return value the value of this KVPair
      */
     public E value() {
         return value;
-    }
-    
-    /**
-     * @return a string of all the fields 
-     */
-    public String toString() {
-        return key.toString() + ", " + value.toString();
     }
 }
