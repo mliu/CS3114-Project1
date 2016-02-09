@@ -1,6 +1,7 @@
 /**
  * @author jordanrw
  * @author mliu95
+ * @version 1
  * The SkipNode class that is used by the SkipList
  * @param <E> A generic class for the element this SkipNode holds
  */
@@ -10,6 +11,9 @@ public class SkipNode<E> {
      * Private variables that describe the SkipNode's data
      */
     private E element;
+    /**
+     * forward - the stack of SkipNodes this SkipNode links to
+     */
     public SkipNode[] forward;
     
     /**
@@ -19,7 +23,7 @@ public class SkipNode<E> {
      */
     public SkipNode(E newElement, int newLevel) {
         element = newElement;
-        forward = new SkipNode[newLevel+1];
+        forward = new SkipNode[newLevel + 1];
     }
     
     /**
