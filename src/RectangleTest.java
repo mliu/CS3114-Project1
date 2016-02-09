@@ -51,7 +51,7 @@ public class RectangleTest extends TestCase {
         Rectangle rect4 = new Rectangle("t3", 100, 100, 5, 1);
         
         assertTrue(rect.intersects(rect2));
-        assertTrue(rect.intersects(rect3));
+        assertFalse(rect.intersects(rect3));
         assertFalse(rect.intersects(rect4));
     }
 
