@@ -128,23 +128,28 @@ public class SkipList<K extends Comparable<K>, E> {
         SkipNode<KVPair<K, E>> checkNode = head;
         checkNode = checkNode.forward[0];
 
-        for (int i = 0; i < size-1; i++) {
+        for (int i = 0; i < size - 1; i++) {
 
-            for (int j = i + 1; j < size-1; j++) {
+            for (int j = i + 1; j < size - 1; j++) {
 
                 iteratorNode = iteratorNode.forward[0];
 
                 //compare the iteratorNode with the checkNode
-                Rectangle iteratorRect = (Rectangle) iteratorNode.element().value();
+                Rectangle iteratorRect = (Rectangle) iteratorNode.
+                        element().value();
                 Rectangle checkRect = (Rectangle) checkNode.element().value();
 
                 //check to see if no intersection
-                if ( (iteratorRect.x + iteratorRect.width) < checkRect.x || (checkRect.x + checkRect.width) < iteratorRect.x || 
-                        (iteratorRect.y + iteratorRect.height) < checkRect.y || (checkRect.y + checkRect.height) < iteratorRect.y ) {
+                if ( (iteratorRect.x + iteratorRect.width) < checkRect.x || 
+                        (checkRect.x + checkRect.width) < iteratorRect.x || 
+                        (iteratorRect.y + iteratorRect.height) < checkRect.y || 
+                        (checkRect.y + checkRect.height) < iteratorRect.y ) {
                     //do nothing
                 } else {
                     //there was an intersection, so add to array
-                    String combinedIntersection = "(" + iteratorRect.toStringInsert() + " | " + checkRect.toStringInsert() + ")" ;
+                    String combinedIntersection = "(" + 
+                    iteratorRect.toStringInsert() + " | " + 
+                            checkRect.toStringInsert() + ")" ;
                     foundList.add(combinedIntersection);
                 }
             }
