@@ -31,7 +31,8 @@ public class FileProcessorTest extends TestCase {
      */
     public void testInsert() {
         processor.parseString("insert test 1 1 1 1");
-        assertFuzzyEquals("Rectangle inserted: (test, 1, 1, 1, 1)", systemOut().getHistory());
+        assertFuzzyEquals("Rectangle inserted: (test, 1, 1, 1, 1)", 
+                systemOut().getHistory());
         
         processor.parseString("insert test 1 1 0 1");
         assertTrue(systemOut().getHistory().contains("Rectangle rejected"));
