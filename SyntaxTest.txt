@@ -23,5 +23,6 @@ dump
 
 remove 10 10 5 5
 remove 10 10 5 5
+remove -1 -1 -1 -1
 	
 regionsearch   -5 -5 20 20 
