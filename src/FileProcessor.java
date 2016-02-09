@@ -56,7 +56,8 @@ public class FileProcessor {
         }
         
         Rectangle rect = new Rectangle(name, x, y, w, h);
-        KVPair<String, Rectangle> pair = new KVPair<String, Rectangle>(name, rect);
+        KVPair<String, Rectangle> pair = new 
+                KVPair<String, Rectangle>(name, rect);
         if (list.insert(pair)) {
             System.out.print("Rectangle inserted: ");
             this.printOut(args);
