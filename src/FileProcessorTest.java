@@ -21,5 +21,4 @@ public class FileProcessorTest extends TestCase {
         processor.parseString("peanuts 7");
         assertFuzzyEquals("", systemOut().getHistory());
     }
-
 }
