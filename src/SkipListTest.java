@@ -27,9 +27,7 @@ public class SkipListTest extends TestCase {
         Rectangle rect1 = new Rectangle("rect1", 2, 2, 4, 4);
         Rectangle rect2 = new Rectangle("rect2", 2, 2, 4, 4);
         Rectangle rect3 = new Rectangle("rect3", 1, 1, 2, 2);
-        
         Rectangle rect4 = new Rectangle("sameName", 300, 300, 10, 10);
-        
         Rectangle rect5 = new Rectangle("rect5", 0, 0, 1024, 100);
         Rectangle rect6 = new Rectangle("sameName", 50, 50, 5, 5);
         
@@ -97,6 +95,11 @@ public class SkipListTest extends TestCase {
         String sameName = "sameName";
         rectList = list.search(sameName);
         
+        ArrayList<Rectangle> rectList2 = list.search("aaaa");
+        ArrayList<Rectangle> rectList3 = list.search("rect3");
+        
+        assertEquals(1, rectList3.size());
+        assertEquals(null, rectList2);
         assertEquals(2, rectList.size());
     }
     
@@ -114,7 +117,7 @@ public class SkipListTest extends TestCase {
         
         assertEquals(1, rectList2.size());
     }
-
+    
     /**
      * Tests the skiplist remove by name method
      */
@@ -125,6 +128,17 @@ public class SkipListTest extends TestCase {
         list.remove("rect1");
         
         assertEquals(5, list.getSize());
+        
+        list.remove("rect5");
+        
+        assertEquals(4, list.getSize());
+        
+        list.remove("rect3");
+        list.remove("rect2");
+        list.remove("sameName");
+        list.remove("sameName");
+        
+        assertEquals(0, list.getSize());
     }
     
     /**
@@ -140,6 +154,12 @@ public class SkipListTest extends TestCase {
         list.remove(test);
         
         assertEquals(4, list.getSize());
+        
+        Rectangle test2 = new Rectangle("", 0, 0, 1024, 100);
+        
+        list.remove(test2);
+        
+        assertEquals(3, list.getSize());
     }
     
     /**

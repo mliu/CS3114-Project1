@@ -262,8 +262,7 @@ public class SkipList<K extends Comparable<K>, E> {
             // Search until we find the first instance of a SkipNode with key
             x = x.forward[0];
         }
-        if ((x.forward[0] != null) && value.equals(
-                ((KVPair<K, E>) x.forward[0].element()).value())) {
+        if (x.forward[0] != null) {
             // We've found the SkipNode we want to remove. 
             // Break out of the search.
             remove = x.forward[0];
