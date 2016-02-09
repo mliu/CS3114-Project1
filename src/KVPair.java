@@ -11,6 +11,9 @@
 public class KVPair<K extends Comparable<K>, E> 
     implements Comparable<KVPair<K, E>> {
 
+    /**
+     * The key and value of this pair
+     */
     private K key;
     private E value;
     
