@@ -25,4 +25,9 @@ public class FileProcessorTest extends TestCase {
         processor.parseString("peanuts 7");
         assertFuzzyEquals("", systemOut().getHistory());
     }
+    
+    public void testInsert() {
+        processor.parseString("insert test 1 1 1 1");
+        assertFuzzyEquals("Rectangle inserted: (test, 1, 1, 1, 1)", systemOut().getHistory());
+    }
 }
