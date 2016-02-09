@@ -16,9 +16,16 @@ public class RectangleTest extends TestCase {
     
     public void testEquals() {
         Object blah = new Object();
-        Rectangle rect2 = new Rectangle("test2", 1, 1, 5, 5)
+        Rectangle rect2 = new Rectangle("test2", 1, 1, 5, 5);
+        Rectangle rect3 = new Rectangle("test3", 1, 1, 5, 6);
+        
         assertFalse(rect.equals(blah));
-        assertTrue(rect.equals(rect2s))
+        assertTrue(rect.equals(rect2));
+        assertFalse(rect.equals(rect3));
+    }
+    
+    public void assertToString() {
+        
     }
 
 }
