@@ -8,7 +8,7 @@ import static student.testingsupport.ReflectionSupport.*;
  * @version 2
  */
 public class Rectangle1Test
-extends TestCase
+    extends TestCase
 {
     private Method main;
     private Rectangle1 rect;
