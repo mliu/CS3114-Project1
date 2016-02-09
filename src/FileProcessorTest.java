@@ -109,7 +109,7 @@ public class FileProcessorTest extends TestCase {
         processor.parseString("remove  1 1 1 5");
         assertTrue(systemOut().getHistory().contains("Rectangle not found"));
         
-        processor.parseString("insert test 1 1 1 5);
+        processor.parseString("insert test 1 1 1 5");
         processor.parseString("remove  1 1 1 5");
         assertTrue(systemOut().getHistory().contains("Rectangle removed"));
     }
