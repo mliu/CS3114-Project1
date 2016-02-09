@@ -16,7 +16,7 @@ public class RectangleTest extends TestCase {
     
     public void testEquals() {
         Object blah = new Object();
-        assertFalse
+        assertFalse(rect.equals(blah));
     }
 
 }
