@@ -18,7 +18,7 @@ public class KVPair<K extends Comparable<K>, E>
     private E value;
     
     /**
-     * Costructor for KVPair
+     * Comstructor for KVPair
      * @param newKey - the key
      * @param newValue - the object or value
      */
