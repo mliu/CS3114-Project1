@@ -9,11 +9,16 @@ public class RectangleTest extends TestCase {
     
     private Rectangle rect;
     
+    /**
+     * Helper method for the tests. Creates generic rectangle
+     */
     public void setUp() {
         rect = new Rectangle("test", 1, 1, 5, 5);
     }
     
-    // Equals
+    /*
+     * Tests the equals method of the rectangle
+     */
     public void testEquals() {
         Object blah = new Object();
         Rectangle rect2 = new Rectangle("test2", 1, 1, 5, 5);
@@ -24,7 +29,9 @@ public class RectangleTest extends TestCase {
         assertFalse(rect.equals(rect3));
     }
     
-    // toString
+    /*
+     * Tests the toString method of the rectangle
+     */
     public void assertToString() {
         assertEquals("test, 1, 1, 5, 5", rect.toString());
     }
