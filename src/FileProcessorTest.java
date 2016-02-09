@@ -77,5 +77,9 @@ public class FileProcessorTest extends TestCase {
     public void testRemove() {
         processor.parseString("remove test");
         assertTrue(systemOut().getHistory().contains("Rectangle not removed"));
+        
+        processor.parseString("insert test 1 1 1 1");
+        processor.parseString("remove test");
+        assertTrue(systemOut().getHistory().contains("Rectangle removed"));
     }
 }
